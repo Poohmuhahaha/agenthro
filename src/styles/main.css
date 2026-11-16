@@ -60,7 +60,7 @@ input[type="radio"]:not(:disabled) {
 @media (min-width: 600px) { .container { padding-inline: 36px; } }
 
 .section { padding-block: var(--ag-space-12); }
-@media (min-width: 900px) { .section { padding-block: var(--ag-space-16); } }
+@media (min-width: 900px) { .section { padding-block: 112px; } }
 .section--ruled { border-top: 1px solid var(--ag-border); }
 
 /* ---------- Type ---------- */
@@ -188,12 +188,12 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   position: relative;
   overflow: hidden;
   background: var(--ag-sky);
-  min-height: 540px;
+  min-height: 560px;
   display: flex;
   align-items: center;
 }
 @media (min-width: 900px) {
-  .hero-cover { min-height: 620px; }
+  .hero-cover { min-height: min(92vh, 960px); }
 }
 .hero-cover::before {
   content: "";
@@ -313,11 +313,14 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
 .four-a-item {
   background: var(--accent);
   color: var(--ag-ink);
-  padding: var(--ag-space-5) var(--ag-space-6);
+  padding: var(--ag-space-6);
   border-radius: var(--ag-radius-md);
   display: grid;
-  gap: var(--ag-space-2);
+  gap: var(--ag-space-3);
   align-content: start;
+}
+@media (min-width: 900px) {
+  .four-a-item { min-height: 220px; padding: var(--ag-space-8); }
 }
 .four-a-item h3 { font-size: 20px; color: var(--ag-ink); }
 .four-a-item p { font-size: 14px; line-height: 1.5; color: var(--ag-ink); opacity: 0.9; }
@@ -438,7 +441,10 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   background-position: 86% 96%;
   background-size: 280% auto;
   display: grid;
-  min-height: 260px;
+  min-height: 280px;
+}
+@media (min-width: 900px) {
+  .poster-frame { min-height: 380px; padding: var(--ag-space-8); }
 }
 .poster-card {
   background: var(--card-bg, var(--ag-sky));
@@ -534,7 +540,7 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
 .events-grid { display: grid; gap: var(--ag-space-4); }
 @media (min-width: 720px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
 .event-col {
-  padding: var(--ag-space-5) var(--ag-space-6);
+  padding: var(--ag-space-6);
   background: var(--accent);
   color: var(--ag-ink);
   border-radius: var(--ag-radius-md);
@@ -542,19 +548,25 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   gap: var(--ag-space-4);
   align-content: start;
 }
+@media (min-width: 900px) {
+  .event-col { min-height: 320px; padding: var(--ag-space-8); }
+}
 .event-links { display: grid; gap: var(--ag-space-3); }
 
 .sponsor-grid { display: grid; gap: var(--ag-space-4); }
 @media (min-width: 680px) { .sponsor-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1120px) { .sponsor-grid { grid-template-columns: repeat(4, 1fr); } }
 .sponsor-card {
-  padding: var(--ag-space-5) var(--ag-space-6);
+  padding: var(--ag-space-6);
   background: var(--accent);
   color: var(--ag-ink);
   border-radius: var(--ag-radius-md);
   display: flex;
   flex-direction: column;
   gap: var(--ag-space-4);
+}
+@media (min-width: 900px) {
+  .sponsor-card { min-height: 460px; padding: var(--ag-space-8); }
 }
 .sponsor-head { display: grid; gap: var(--ag-space-2); }
 .sponsor-body { color: var(--ag-ink); opacity: 0.9; }
@@ -646,7 +658,7 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
 @media (min-width: 560px) {
   .namecard-badge {
     border-radius: 40px;
-    min-height: 290px;
+    min-height: 360px;
   }
 }
 .namecard-brand {
@@ -724,9 +736,11 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   background: var(--ag-coral);
   color: var(--ag-ink);
   padding-block: var(--ag-space-16);
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 900px) {
-  .wanna-join { padding-block: 112px; }
+  .wanna-join { min-height: 760px; padding-block: 140px; }
 }
 .wanna-join-inner {
   display: flex;
@@ -864,10 +878,13 @@ select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmln
   background: var(--accent);
   color: var(--ag-ink);
   border-radius: var(--ag-radius-md);
-  padding: var(--ag-space-5) var(--ag-space-6);
+  padding: var(--ag-space-6);
   display: grid;
-  gap: var(--ag-space-2);
+  gap: var(--ag-space-3);
   align-content: start;
+}
+@media (min-width: 900px) {
+  .about-pillar { min-height: 210px; padding: var(--ag-space-8); }
 }
 .about-pillar h3 { font-size: 20px; color: var(--ag-ink); }
 .about-pillar p { font-size: 15px; line-height: 1.5; color: var(--ag-ink); opacity: 0.9; }
