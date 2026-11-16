@@ -280,23 +280,28 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
 
 .foundation {
   background: var(--ag-surface);
-  padding: var(--ag-space-6) var(--ag-space-8);
+  padding: var(--ag-space-4) var(--ag-space-6);
   border-radius: var(--ag-radius-lg);
   box-shadow: var(--ag-shadow);
+  width: fit-content;
+  max-width: 100%;
+}
+@media (min-width: 960px) {
+  .foundation { justify-self: end; }
 }
 .equation-line {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--ag-space-2) var(--ag-space-4);
+  gap: var(--ag-space-2) var(--ag-space-3);
   font-family: var(--ag-font-display);
   font-weight: 800;
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--ag-text);
 }
-.eq-op { color: var(--ag-coral); font-weight: 700; }
+.eq-op { color: var(--ag-coral); font-weight: 800; }
 .eq-result { color: var(--ag-link); }
 
 .four-a-strip {
