@@ -284,15 +284,20 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   border-radius: var(--ag-radius-lg);
   box-shadow: var(--ag-shadow);
 }
-.equation { display: grid; gap: var(--ag-space-4); align-items: start; }
-@media (min-width: 720px) { .equation { grid-template-columns: minmax(0, 0.82fr) auto minmax(0, 1.15fr) auto minmax(0, 1fr); gap: var(--ag-space-4); } }
-.eq-term { display: flex; flex-direction: column; gap: var(--ag-space-2); }
-.eq-word { font-family: var(--ag-font-display); font-weight: 800; font-size: clamp(24px, 2.5vw, 32px); letter-spacing: -0.03em; line-height: 1.05; }
-.eq-term--result .eq-word { color: var(--ag-link); }
-.eq-desc { color: var(--ag-text-muted); font-size: 14px; line-height: 1.45; max-width: 26ch; }
-.eq-op { display: flex; align-items: center; justify-content: center; color: var(--ag-coral); min-height: 34px; }
-.eq-op svg { width: 30px; height: 30px; }
-@media (min-width: 900px) { .eq-op svg { width: 34px; height: 34px; } }
+.equation-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ag-space-2) var(--ag-space-4);
+  font-family: var(--ag-font-display);
+  font-weight: 800;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ag-text);
+}
+.eq-op { color: var(--ag-coral); font-weight: 700; }
+.eq-result { color: var(--ag-link); }
 
 .four-a-strip {
   display: grid;
