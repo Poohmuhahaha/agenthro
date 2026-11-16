@@ -194,7 +194,7 @@
     /* Subtle reveal */
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {
-      var targets = document.querySelectorAll('.research-intro, .foundation, .four-a-item, .poster-frame, .event-col, .sponsor-card, .namecard, .wanna-join-inner, .reading');
+      var targets = document.querySelectorAll('.research-intro, .foundation, .four-a-item, .poster-frame, .event-col, .sponsor-card, .namecard, .wanna-join-inner, .about-lead, .about-contact-card, .about-pillar');
       var rev = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); rev.unobserve(en.target); } });
       }, { rootMargin: '0px 0px -8% 0px' });

@@ -156,7 +156,7 @@
 
         <ul class="poster-grid">
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #0E3A8A; --tilt: -3deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-sky); --tilt: -3deg;">
               <div class="poster-top">
                 <h3>OAT<br>ANOTHER OAT</h3>
                 <span class="poster-tag">Attribution · Physical</span>
@@ -172,7 +172,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #14532D; --tilt: 2.5deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-sky); --tilt: 2.5deg;">
               <div class="poster-top">
                 <h3>PEITHO</h3>
                 <span class="poster-tag">Attribution · Digital</span>
@@ -184,7 +184,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #9A2917; --tilt: -2.5deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-mint); --tilt: -2.5deg;">
               <div class="poster-top">
                 <h3>DANCE<br>BATTLE</h3>
                 <span class="poster-tag">Attachment · Physical</span>
@@ -196,7 +196,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #101319; --tilt: 3deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-mint); --tilt: 3deg;">
               <div class="poster-top">
                 <h3>SUPERMAN<br>SUIT</h3>
                 <span class="poster-tag">Attachment · Digital</span>
@@ -211,7 +211,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #0E3A8A; --tilt: -3deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-coral); --tilt: -3deg;">
               <div class="poster-top">
                 <h3>QAT<br>ATLAS</h3>
                 <span class="poster-tag">Authority · Physical</span>
@@ -223,7 +223,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #14532D; --tilt: 2.5deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-coral); --tilt: 2.5deg;">
               <div class="poster-top">
                 <h3>ROBOSONIC</h3>
                 <span class="poster-tag">Authority · Digital</span>
@@ -238,7 +238,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #9A2917; --tilt: -2.5deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-peach); --tilt: -2.5deg;">
               <div class="poster-top">
                 <h3>ROOKAR</h3>
                 <span class="poster-tag">Adaptation · Physical</span>
@@ -248,7 +248,7 @@
           </li>
 
           <li class="poster-frame">
-            <article class="poster-card" style="--card-bg: #101319; --tilt: 3deg;">
+            <article class="poster-card" style="--card-bg: var(--ag-peach); --tilt: 3deg;">
               <div class="poster-top">
                 <h3>AGENT<br>RESOURCE</h3>
                 <span class="poster-tag">Adaptation · Digital</span>
@@ -572,34 +572,41 @@
 
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container spread-grid">
-        <div class="spread-aside">
-          <h2 id="about-title">The Agenthropology Initiative</h2>
-        </div>
-        <div class="reading">
-          <p class="body-l" data-i18n="about.p1">AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them.</p>
-          <dl class="about-list">
-            <div><dt class="meta" data-i18n="about.vision">Vision</dt><dd data-i18n="about.visionText">Understanding humans through the agents we create, imagine, and live with.</dd></div>
-            <div><dt class="meta" data-i18n="about.foundation">Foundation</dt><dd>Agents × Anthropology → Agency</dd></div>
-            <div><dt class="meta" data-i18n="about.themes">Research themes</dt><dd>Attribution · Attachment · Authority · Adaptation</dd></div>
-            <div><dt class="meta" data-i18n="about.contact">Contact</dt><dd><a href="mailto:agenthro@gmail.com">agenthro@gmail.com</a></dd></div>
-          </dl>
-          <h3 class="h4" data-i18n="about.principlesTitle">How we work</h3>
-          <ul class="principles">
-            <li><strong data-i18n="about.pr1t">Human before machine.</strong> <span data-i18n="about.pr1">We focus on people, decisions, and relationships, not “AI magic.”</span></li>
-            <li><strong data-i18n="about.pr2t">Research before decoration.</strong> <span data-i18n="about.pr2">Hypotheses, methods, and limitations are easy to find.</span></li>
-            <li><strong data-i18n="about.pr3t">Designed for uncertainty.</strong> <span data-i18n="about.pr3">We say clearly what is a question, a hypothesis, or a finding.</span></li>
-          </ul>
-          <div class="about-note-row">
-            <span class="meta" data-i18n="about.affiliationLabel">Affiliation note</span>
-            <span class="info-tip">
-              <button class="info-tip-btn" type="button" aria-expanded="false" aria-controls="tip-affiliation" aria-label="Note on institutional affiliation">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </button>
-              <span class="info-tip-panel" id="tip-affiliation" role="region" hidden data-i18n="about.affiliation">AGENTHRO is an initiative. Host institutions, sponsors, and research partners are listed here only once formally confirmed for a specific project.</span>
-            </span>
+      <div class="container about-stack">
+        <div class="about-top">
+          <div class="about-lead">
+            <h2 id="about-title">The Agenthropology Initiative</h2>
+            <p class="body-l muted" data-i18n="about.p1">AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them.</p>
+          </div>
+
+          <div class="about-contact-card">
+            <div class="about-contact-head">
+              <span class="meta" data-i18n="about.contact">Contact</span>
+              <span class="info-tip">
+                <button class="info-tip-btn info-tip-btn--on-ink" type="button" aria-expanded="false" aria-controls="tip-affiliation" aria-label="Note on institutional affiliation">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span class="info-tip-panel info-tip-panel--right" id="tip-affiliation" role="region" hidden data-i18n="about.affiliation">AGENTHRO is an initiative. Host institutions, sponsors, and research partners are listed here only once formally confirmed for a specific project.</span>
+              </span>
+            </div>
+            <a class="about-email" href="mailto:agenthro@gmail.com">agenthro@gmail.com</a>
           </div>
         </div>
+
+        <ul class="about-pillars">
+          <li class="about-pillar" style="--accent: var(--ag-sky-light)">
+            <h3 data-i18n="about.pr1t">Human before machine.</h3>
+            <p data-i18n="about.pr1">We focus on people, decisions, and relationships, not “AI magic.”</p>
+          </li>
+          <li class="about-pillar" style="--accent: var(--ag-mint)">
+            <h3 data-i18n="about.pr2t">Research before decoration.</h3>
+            <p data-i18n="about.pr2">Hypotheses, methods, and limitations are easy to find.</p>
+          </li>
+          <li class="about-pillar" style="--accent: var(--ag-peach)">
+            <h3 data-i18n="about.pr3t">Designed for uncertainty.</h3>
+            <p data-i18n="about.pr3">We say clearly what is a question, a hypothesis, or a finding.</p>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
