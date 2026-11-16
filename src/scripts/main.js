@@ -1,0 +1,211 @@
+/* AGENTHRO website: progressive enhancement. Content works without JS. */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  /* ---------- i18n (EN default in HTML; TH dictionary here) ---------- */
+  var TH = {
+    'skip': 'ข้ามไปยังเนื้อหา',
+    'nav.research': 'งานวิจัย', 'nav.works': 'ผลงาน', 'nav.services': 'บริการ', 'nav.events': 'กิจกรรม', 'nav.sponsorship': 'สนับสนุน', 'nav.people': 'ทีมงาน', 'nav.about': 'เกี่ยวกับเรา', 'nav.menu': 'เมนู',
+    'hero.title': 'อะไรทำให้สิ่งหนึ่งเป็น “เอเจนต์”?',
+    'hero.cta1': 'สำรวจผลงานคัดสรร', 'hero.cta2': 'การสนับสนุน',
+    'research.eyebrow': 'คำถามของเรา',
+    'research.title': 'ทำความเข้าใจมนุษย์ ผ่านเอเจนต์ที่เราสร้าง จินตนาการ และอยู่ร่วมด้วย',
+    'research.lede': 'Agenthropology เป็นแนวคิดการวิจัยที่เสนอขึ้น เพื่อศึกษามนุษย์ผ่านความสัมพันธ์ที่ผู้คนสร้างขึ้นกับเอเจนต์ทั้งที่เป็นปัญญาประดิษฐ์และที่เกิดจากจินตนาการ',
+    'research.foundation': 'รากฐาน 3A',
+    'research.agents': 'ระบบ ตัวละคร หรือสิ่งที่เราออกแบบหรือจินตนาการว่าสามารถกระทำการได้ด้วยตัวเอง',
+    'research.anthro': 'การศึกษามนุษย์ วัฒนธรรม ความหมาย และวิถีปฏิบัติในชีวิตประจำวัน',
+    'research.agency': 'ความสามารถในการกระทำ เลือก และตัดสินใจ ถูกแบ่งปันระหว่างมนุษย์กับเอเจนต์อย่างไร',
+    'research.themesTitle': 'สี่ประเด็นการวิจัย',
+    'research.themesNote': 'ประเด็น 4A เป็นแนวการศึกษาคู่ขนานกัน ไม่ใช่ลำดับขั้น คะแนน หรือมาตรวัดเชิงวินิจฉัยที่ผ่านการรับรองแล้ว',
+    'theme.attribution': 'ผู้คนรับรู้จิตใจ เจตนา และความสามารถของเอเจนต์อย่างไร',
+    'theme.attachment': 'ความสัมพันธ์ ความไว้วางใจ และความผูกพัน อาจก่อตัวขึ้นระหว่างคนกับเอเจนต์อย่างไร',
+    'theme.authority': 'การตัดสินใจและการควบคุมถูกมอบหมาย แบ่งปัน หรือดึงกลับคืนมาอย่างไร',
+    'theme.adaptation': 'ผู้คนและระบบเปลี่ยนแปลงไปด้วยกันตามกาลเวลาอย่างไร',
+    'works.title': 'ผลงานคัดสรร', 'works.lede': 'ต้นแบบเชิงกายภาพและดิจิทัลในประเด็นวิจัยทั้ง 4A',
+    'works.physical': 'กายภาพ (Physical)', 'works.digital': 'ดิจิทัล (Digital)',
+    'works.oatVideo': 'วิดีโอสาธิตบน YouTube Shorts', 'works.spacechiDoc': 'เอกสารโครงการ (Drive)',
+    'works.go': 'ไปที่หน้าเว็บ',
+    'services.title': 'บริการ', 'services.lede': 'งานวิจัยประยุกต์ รายงานทางวิทยาศาสตร์ และการสร้างต้นแบบอย่างรวดเร็วสำหรับทีมที่พัฒนาหรือประเมินเอเจนต์',
+    'services.s1desc': 'การประเมินทางวิทยาศาสตร์และรายงานปฏิสัมพันธ์ระหว่างมนุษย์กับเอเจนต์สำหรับโครงการของคุณ',
+    'services.s2desc': 'ต้นแบบที่ใช้งานได้จริงอย่างรวดเร็วพร้อมรายงานการประเมินสำหรับโครงการของคุณ',
+    'services.perProject': 'ต่อโครงการ', 'services.cta': 'ติดต่อขอใช้บริการ',
+    'events.title': 'กิจกรรมคัดสรร', 'events.lede': 'แฮกกาธอน เวิร์กช็อป และการสื่อสารวิทยาศาสตร์',
+    'events.hackTitle': 'แฮกกาธอนและเวิร์กช็อป', 'events.sciTitle': 'การสื่อสารวิทยาศาสตร์',
+    'events.yt1': 'วิดีโอสื่อสารวิทยาศาสตร์ 1 (YouTube)', 'events.yt2': 'วิดีโอสื่อสารวิทยาศาสตร์ 2 (YouTube)', 'events.ytLive': 'ไลฟ์สื่อสารวิทยาศาสตร์ (YouTube)',
+    'sponsor.title': 'การสนับสนุน', 'sponsor.lede': 'ระยะเวลา 2 เดือน ระดับที่สูงกว่าจะได้รับสิทธิประโยชน์ของระดับที่ต่ำกว่าทั้งหมดด้วย',
+    'sponsor.vip': 'เร็ว ๆ นี้', 'sponsor.imp1': 'บริการฟรี 2 ครั้ง', 'sponsor.imp2': 'สามารถถือหุ้นได้ 2 Project StartUp', 'sponsor.imp3': 'ใช้แพลตฟอร์มพัฒนาของโครงการริเริ่มได้ฟรี', 'sponsor.includesLower': 'รวมสิทธิประโยชน์ของ Premium และ Partnership ทั้งหมด',
+    'sponsor.prem1': 'ร่วมพัฒนา 2 โครงการ (Co-Dev 2 Project)', 'sponsor.prem2': 'ได้รับชื่อผู้สนับสนุนในทุกกิจกรรม CIA CreativeLab × UTCC', 'sponsor.includesPart': 'รวมสิทธิประโยชน์ของ Partnership ทั้งหมด',
+    'sponsor.part1': 'สิทธิ์ใช้งานแพลตฟอร์มที่ได้รับอนุญาตของกลุ่มเป็นกลุ่มแรก', 'sponsor.part2': 'ร่วมใช้ทรัพยากรที่คัดสรรจาก UTCC', 'sponsor.cta': 'ติดต่อสอบถาม',
+    'projects.soon': 'เร็ว ๆ นี้',
+    'people.title': 'ทีมงาน', 'people.lede': 'นักวิจัย ที่ปรึกษา วิศวกร และผู้ร่วมงานเบื้องหลัง AGENTHRO',
+    'people.all': 'ทั้งหมด',
+    'join.wanna': 'อยากร่วมทีมกับเราไหม?',
+    'join.click': 'คลิกที่นี่',
+    'about.eyebrow': 'เกี่ยวกับเรา',
+    'about.p1': 'AGENTHRO คือชื่อสาธารณะของ The Agenthropology Initiative เราศึกษาเอเจนต์ ทั้งที่เป็นปัญญาประดิษฐ์ ตัวละคร และสิ่งที่จินตนาการขึ้น เพื่อทำความเข้าใจผู้คนที่สร้างและอยู่ร่วมกับพวกมัน',
+    'about.vision': 'วิสัยทัศน์', 'about.visionText': 'ทำความเข้าใจมนุษย์ ผ่านเอเจนต์ที่เราสร้าง จินตนาการ และอยู่ร่วมด้วย',
+    'about.foundation': 'รากฐาน', 'about.themes': 'ประเด็นการวิจัย', 'about.contact': 'ติดต่อ',
+    'about.principlesTitle': 'วิธีการทำงานของเรา',
+    'about.pr1t': 'มนุษย์มาก่อนเครื่องจักร', 'about.pr1': 'เราให้ความสำคัญกับผู้คน การตัดสินใจ และความสัมพันธ์ ไม่ใช่ “เวทมนตร์ของ AI”',
+    'about.pr2t': 'งานวิจัยมาก่อนการตกแต่ง', 'about.pr2': 'สมมติฐาน ระเบียบวิธี และข้อจำกัด ต้องหาได้ง่าย',
+    'about.pr3t': 'ออกแบบเพื่อความไม่แน่นอน', 'about.pr3': 'เราบอกอย่างชัดเจนว่าอะไรคือคำถาม สมมติฐาน หรือข้อค้นพบ',
+    'about.affiliationLabel': 'หมายเหตุความร่วมมือ',
+    'about.affiliation': 'AGENTHRO เป็นโครงการริเริ่ม (initiative) สถาบันเจ้าภาพ ผู้สนับสนุน และพันธมิตรด้านการวิจัย จะแสดงที่นี่เมื่อได้รับการยืนยันอย่างเป็นทางการสำหรับแต่ละโครงการเท่านั้น',
+    'footer.contact': 'นโยบายความเป็นส่วนตัวและช่องทางติดต่อจะเผยแพร่เมื่อได้รับการยืนยันแล้ว'
+  };
+  var MSG = {
+    en: {
+      nameReq: 'Enter your name.', emailReq: 'Enter your email address.', emailBad: 'Enter an email address like name@example.com.',
+      projectReq: 'Choose whether you have a research project in mind.', privacyReq: 'Please confirm you understand how your details are used.',
+      bannerErr: 'Please fix the highlighted fields.', bannerErrN: function (n) { return n + (n === 1 ? ' field needs' : ' fields need') + ' attention.'; },
+      okTitle: 'Thanks, your interest is noted.', okBody: 'This is a demo form, so nothing was sent. Once a verified contact channel is live, submissions will go to the AGENTHRO team.',
+      sending: 'Sending…', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode', lang: 'Switch language to Thai',
+      menuOpen: 'Open menu', menuClose: 'Close menu'
+    },
+    th: {
+      nameReq: 'กรุณากรอกชื่อ', emailReq: 'กรุณากรอกอีเมล', emailBad: 'กรุณากรอกอีเมลให้ถูกรูปแบบ เช่น name@example.com',
+      projectReq: 'กรุณาเลือกว่าคุณมีโครงการวิจัยในใจหรือไม่', privacyReq: 'กรุณายืนยันว่าคุณเข้าใจการใช้ข้อมูลของคุณ',
+      bannerErr: 'กรุณาแก้ไขช่องที่มีเครื่องหมาย', bannerErrN: function (n) { return 'มี ' + n + ' ช่องที่ต้องแก้ไข'; },
+      okTitle: 'ขอบคุณ เราได้รับความสนใจของคุณแล้ว', okBody: 'นี่เป็นแบบฟอร์มตัวอย่าง จึงยังไม่มีการส่งข้อมูล เมื่อมีช่องทางติดต่อที่ยืนยันแล้ว ข้อมูลจะถูกส่งถึงทีม AGENTHRO',
+      sending: 'กำลังส่ง…', themeDark: 'เปลี่ยนเป็นโหมดมืด', themeLight: 'เปลี่ยนเป็นโหมดสว่าง', lang: 'Switch language to English',
+      menuOpen: 'เปิดเมนู', menuClose: 'ปิดเมนู'
+    }
+  };
+
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  nodes.forEach(function (el) { el.setAttribute('data-en', el.textContent); });
+
+  function lang() { return root.getAttribute('lang') === 'th' ? 'th' : 'en'; }
+  function t(key) { return MSG[lang()][key]; }
+
+  function applyLang(l) {
+    root.setAttribute('lang', l);
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      el.textContent = l === 'th' && TH[k] ? TH[k] : el.getAttribute('data-en');
+    });
+    document.getElementById('lang-label').textContent = l === 'th' ? 'EN' : 'TH';
+    document.getElementById('lang-toggle').setAttribute('aria-label', MSG[l].lang);
+    syncThemeLabel();
+    try { localStorage.setItem('ag-lang', l); } catch (e) {}
+  }
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    applyLang(lang() === 'th' ? 'en' : 'th');
+  });
+
+  /* ---------- Theme ---------- */
+  var themeBtn = document.getElementById('theme-toggle');
+  function syncThemeLabel() {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    themeBtn.setAttribute('aria-pressed', String(dark));
+    themeBtn.setAttribute('aria-label', dark ? t('themeLight') : t('themeDark'));
+  }
+  themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('ag-theme', next); } catch (e) {}
+    syncThemeLabel();
+  });
+
+  applyLang(lang());
+
+  /* ---------- Mobile menu ---------- */
+  var menuBtn = document.getElementById('menu-toggle');
+  var nav = document.getElementById('primary-nav');
+  function setMenu(open) {
+    nav.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? t('menuClose') : t('menuOpen'));
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+  });
+
+  /* ---------- Info tooltips (click/tap, hover/focus, Escape, outside click) ---------- */
+  var tips = Array.prototype.slice.call(document.querySelectorAll('.info-tip'));
+  function closeAllTips(except) {
+    tips.forEach(function (tip) {
+      if (tip === except) return;
+      var btn = tip.querySelector('.info-tip-btn');
+      var panel = tip.querySelector('.info-tip-panel');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.hidden = true;
+    });
+  }
+  tips.forEach(function (tip) {
+    var btn = tip.querySelector('.info-tip-btn');
+    var panel = tip.querySelector('.info-tip-panel');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      closeAllTips(tip);
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
+  });
+  document.addEventListener('click', function () { closeAllTips(null); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAllTips(null);
+  });
+
+  /* ---------- People carousel: role tabs + prev/next scroll ---------- */
+  var rail = document.getElementById('namecard-rail');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.role-tab'));
+  var cards = Array.prototype.slice.call(rail.querySelectorAll('.namecard'));
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var role = tab.getAttribute('data-filter');
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+      });
+      cards.forEach(function (c) {
+        c.hidden = role !== 'all' && c.getAttribute('data-role') !== role;
+      });
+      rail.scrollTo({ left: 0, behavior: 'smooth' });
+    });
+  });
+  document.getElementById('people-prev').addEventListener('click', function () {
+    rail.scrollBy({ left: -540, behavior: 'smooth' });
+  });
+  document.getElementById('people-next').addEventListener('click', function () {
+    rail.scrollBy({ left: 540, behavior: 'smooth' });
+  });
+
+  /* ---------- Active section in nav ---------- */
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) {
+          if (a.getAttribute('href') === '#' + en.target.id) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
+
+    /* Subtle reveal */
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      var targets = document.querySelectorAll('.research-intro, .foundation, .four-a-item, .poster-frame, .event-col, .sponsor-card, .namecard, .wanna-join-inner, .reading');
+      var rev = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); rev.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      targets.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('is-visible');
+        } else {
+          el.classList.add('reveal');
+          rev.observe(el);
+        }
+      });
+    }
+  }
+})();

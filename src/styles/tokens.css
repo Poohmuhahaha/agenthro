@@ -1,0 +1,90 @@
+/* AGENTHRO design tokens — based on AGENTHRO CI & UI Design System v1.0 (§14).
+   All theme styles must use these semantic tokens, not hardcoded colors. */
+:root {
+  /* Brand: fixed */
+  --ag-sky: #3182F6;
+  --ag-sky-light: #A8C5FF;
+  --ag-cloud: #F7F9FF;
+  --ag-ink: #101319;
+  --ag-coral: #FF684A;
+  --ag-mint: #92C9A7;
+  --ag-peach: #FFCCAE;
+
+  /* Light UI semantics */
+  --ag-bg: #F7F9FF;
+  --ag-surface: #FFFFFF;
+  --ag-surface-muted: #E7F0FF;
+  --ag-text: #101319;
+  --ag-text-muted: #475569;
+  --ag-border: #DCE3ED;
+  --ag-action: #195EC8;
+  --ag-action-hover: #144FAB;
+  --ag-action-text: #FFFFFF;
+  --ag-link: #195EC8;
+  --ag-focus: #3182F6;
+  --ag-error: #AD2F1B;
+  --ag-error-bg: #FFF1ED;
+  --ag-success: #176344;
+  --ag-success-bg: #EAF8F0;
+  --ag-warning: #80510C;
+  --ag-warning-bg: #FFF7E7;
+  --ag-on-sky: #101319; /* normal-size text on raw sky blue */
+  --ag-shadow: 0 1px 2px rgba(16, 19, 25, .04), 0 8px 24px rgba(16, 19, 25, .06);
+
+  /* Type */
+  --ag-font-ui: Inter, "Noto Sans Thai", Arial, sans-serif;
+  --ag-font-display: "Neue Haas Grotesk", Inter, "Noto Sans Thai", Arial, sans-serif;
+  --ag-font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Spacing (4 px base, 8 px rhythm) */
+  --ag-space-1: 4px;
+  --ag-space-2: 8px;
+  --ag-space-3: 12px;
+  --ag-space-4: 16px;
+  --ag-space-5: 20px;
+  --ag-space-6: 24px;
+  --ag-space-8: 32px;
+  --ag-space-12: 48px;
+  --ag-space-16: 64px;
+  --ag-space-24: 96px;
+
+  /* Shape */
+  --ag-radius-sm: 6px;
+  --ag-radius-md: 12px;
+  --ag-radius-lg: 20px;
+  --ag-radius-pill: 999px;
+  --ag-container: 1200px;
+  --ag-reading-width: 800px;
+
+  /* Motion */
+  --ag-motion-quick: 160ms;
+  --ag-motion-standard: 220ms;
+  --ag-motion-expressive: 380ms;
+  --ag-ease: cubic-bezier(.2, .7, .2, 1);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --ag-bg: #101319;
+  --ag-surface: #171E29;
+  --ag-surface-muted: #202B39;
+  --ag-text: #F7F9FF;
+  --ag-text-muted: #C8D3E4;
+  --ag-border: #354357;
+  --ag-action: #3182F6;
+  --ag-action-hover: #5A9BF8;
+  --ag-action-text: #101319;
+  --ag-link: #A8C5FF;
+  --ag-focus: #A8C5FF;
+  /* Project-specific dark semantic roles — see docs/design-decisions.md (DD-002) */
+  --ag-error: #FF9C87;
+  --ag-error-bg: #3A1D17;
+  --ag-success: #8FD6AE;
+  --ag-success-bg: #15301F;
+  --ag-warning: #F2C46D;
+  --ag-warning-bg: #352812;
+  --ag-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+
+  color-scheme: dark;
+}

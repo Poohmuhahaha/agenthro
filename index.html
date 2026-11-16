@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AGENTHRO · The Agenthropology Initiative</title>
+  <meta name="description" content="AGENTHRO, The Agenthropology Initiative. We invent others to understand ourselves. Understanding humans through the agents we create, imagine, and live with." />
+  <meta name="theme-color" content="#3182F6" />
+  <link rel="icon" type="image/webp" href="public/brand/agenthro-symbol.webp" />
+  <!-- Fonts: Inter, Noto Sans Thai, Roboto Mono are open-licensed (SIL OFL). Neue Haas Grotesk is NOT loaded (commercial license required). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/tokens.css" />
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ag-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        var l = localStorage.getItem('ag-lang');
+        if (l) document.documentElement.setAttribute('lang', l);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="AGENTHRO home">
+        <img class="brand-logo" src="public/brand/agenthro-symbol.webp" width="1049" height="913" alt="" />
+        <span class="brand-text">
+          <span class="brand-wordmark">AGENTHRO</span>
+          <span class="brand-sub">The Agenthropology Initiative</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#research" data-i18n="nav.research">Research</a></li>
+          <li><a href="#works" data-i18n="nav.works">Works</a></li>
+          <li><a href="#events" data-i18n="nav.events">Events</a></li>
+          <li><a href="#sponsorship" data-i18n="nav.sponsorship">Sponsor</a></li>
+          <li><a href="#people" data-i18n="nav.people">People</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <button class="tool-btn" id="lang-toggle" type="button" aria-label="Switch language to Thai">
+          <span class="mono" id="lang-label">TH</span>
+        </button>
+        <button class="tool-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tool-btn menu-btn" id="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="menu-label" data-i18n="nav.menu">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO COVER ============ -->
+    <section class="hero-cover" aria-labelledby="hero-title">
+      <img class="hero-cover-art" src="public/assets/hero-bg.jpg" width="2000" height="1117" fetchpriority="high" alt="Sky blue landscape with clouds, mountains, wildflower meadow, and a translucent orbital sphere." />
+      <div class="container hero-cover-inner">
+        <div class="hero-panel">
+          <h1 class="display" id="hero-title" data-i18n="hero.title">What makes something an agent?</h1>
+          <div class="hero-actions">
+            <a class="ag-button ag-button--primary" href="#works" data-i18n="hero.cta1">Explore selected works</a>
+            <a class="ag-button ag-button--secondary" href="#sponsorship" data-i18n="hero.cta2">Sponsorship</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH / FRAMEWORK ============ -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container research-stack">
+        <div class="research-hero-row">
+          <header class="research-intro">
+            <h2 id="research-title" data-i18n="research.title">Understanding humans through the agents we create, imagine, and live with.</h2>
+            <p class="muted" data-i18n="research.lede">Agenthropology is a proposed research concept: studying people by studying the relationships they build with artificial and imagined agents.</p>
+          </header>
+
+          <!-- 3A foundation -->
+          <div class="foundation" role="group" aria-label="Agents times Anthropology leads to Agency">
+            <ol class="equation">
+              <li class="eq-term">
+                <span class="eq-word">Agents</span>
+                <span class="eq-desc" data-i18n="research.agents">Systems, characters, and beings we design or imagine as acting on their own.</span>
+              </li>
+              <li class="eq-op" aria-hidden="true">
+                <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round"><path d="M9 9l18 18M27 9L9 27"/></svg>
+              </li>
+              <li class="eq-term">
+                <span class="eq-word">Anthropology</span>
+                <span class="eq-desc" data-i18n="research.anthro">The study of people, culture, meaning, and everyday practice.</span>
+              </li>
+              <li class="eq-op" aria-hidden="true">
+                <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h25M20 8l10 10-10 10"/></svg>
+              </li>
+              <li class="eq-term eq-term--result">
+                <span class="eq-word">Agency</span>
+                <span class="eq-desc" data-i18n="research.agency">How capacity to act, choose, and decide is shared between humans and agents.</span>
+              </li>
+            </ol>
+            <p class="sr-only">Agents times Anthropology leads to Agency.</p>
+          </div>
+        </div>
+
+        <!-- 4A themes strip -->
+        <ul class="four-a-strip" aria-label="Four research themes">
+          <li class="four-a-item" style="--accent: var(--ag-sky)">
+            <h3>Attribution</h3>
+            <p class="muted" data-i18n="theme.attribution">How minds, intentions, and capabilities are perceived in agents.</p>
+          </li>
+          <li class="four-a-item" style="--accent: var(--ag-mint)">
+            <h3>Attachment</h3>
+            <p class="muted" data-i18n="theme.attachment">How relationships, trust, and care may form between people and agents.</p>
+          </li>
+          <li class="four-a-item" style="--accent: var(--ag-coral)">
+            <h3>Authority</h3>
+            <p class="muted" data-i18n="theme.authority">How decisions and control are delegated, shared, or taken back.</p>
+          </li>
+          <li class="four-a-item" style="--accent: var(--ag-peach)">
+            <h3>Adaptation</h3>
+            <p class="muted" data-i18n="theme.adaptation">How people and systems change together over time.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED WORKS (4A × 3-column bands) ============ -->
+    <section class="section" id="works" aria-labelledby="works-title">
+      <div class="container">
+        <header class="section-head section-head--row">
+          <div class="themes-head-row">
+            <h2 id="works-title" data-i18n="works.title">Selected Works</h2>
+            <span class="info-tip">
+              <button class="info-tip-btn" type="button" aria-expanded="false" aria-controls="tip-4a" aria-label="Note on the 4A themes">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <span class="info-tip-panel" id="tip-4a" role="region" hidden data-i18n="research.themesNote">The 4A themes are parallel areas of inquiry, not a sequence, score, or validated diagnostic scale.</span>
+            </span>
+          </div>
+          <p class="muted head-aside" data-i18n="works.lede">Physical and digital prototypes across the 4A research themes.</p>
+        </header>
+
+        <ul class="poster-grid">
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #0E3A8A; --tilt: -3deg;">
+              <div class="poster-top">
+                <h3>OAT<br>ANOTHER OAT</h3>
+                <span class="poster-tag">Attribution · Physical</span>
+              </div>
+              <div class="poster-bottom">
+                <div class="poster-extra">
+                  <a href="https://github.com/taechasith/AnotherOAT" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://youtube.com/shorts/NpFXmq9Q9bg?si=DPmf6GICof9eFJ_i" target="_blank" rel="noopener noreferrer">Shorts</a>
+                </div>
+                <a class="poster-go" href="https://oat.creativelabth.com" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #14532D; --tilt: 2.5deg;">
+              <div class="poster-top">
+                <h3>PEITHO</h3>
+                <span class="poster-tag">Attribution · Digital</span>
+              </div>
+              <div class="poster-bottom">
+                <a class="poster-go" href="https://peitho.creativelabth.com" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #9A2917; --tilt: -2.5deg;">
+              <div class="poster-top">
+                <h3>DANCE<br>BATTLE</h3>
+                <span class="poster-tag">Attachment · Physical</span>
+              </div>
+              <div class="poster-bottom">
+                <a class="poster-go" href="https://cybernotsubin.fafromh0me.com/dance-battle" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #101319; --tilt: 3deg;">
+              <div class="poster-top">
+                <h3>SUPERMAN<br>SUIT</h3>
+                <span class="poster-tag">Attachment · Digital</span>
+              </div>
+              <div class="poster-bottom">
+                <div class="poster-extra">
+                  <a href="https://drive.google.com/file/d/1jUfLf3lkxvdXBoy95WjlRxuxYqliOSM1/view?usp=sharing" target="_blank" rel="noopener noreferrer">Drive doc</a>
+                </div>
+                <a class="poster-go" href="https://spacechi.media.mit.edu/#:~:text=Superman%20Suit%3A%20A%20Photovoltaic%20Neuromuscular%20Safety%20Net%20for%20Off%2DWorld%20Habitats" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #0E3A8A; --tilt: -3deg;">
+              <div class="poster-top">
+                <h3>QAT<br>ATLAS</h3>
+                <span class="poster-tag">Authority · Physical</span>
+              </div>
+              <div class="poster-bottom">
+                <a class="poster-go" href="https://qatatlas.creativelabth.com" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #14532D; --tilt: 2.5deg;">
+              <div class="poster-top">
+                <h3>ROBOSONIC</h3>
+                <span class="poster-tag">Authority · Digital</span>
+              </div>
+              <div class="poster-bottom">
+                <div class="poster-extra">
+                  <a href="https://github.com/6710615151/Robosonic" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+                <a class="poster-go" href="https://humanoid-th.tttracker.space/" target="_blank" rel="noopener noreferrer" data-i18n="works.go">Go to page</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #9A2917; --tilt: -2.5deg;">
+              <div class="poster-top">
+                <h3>ROOKAR</h3>
+                <span class="poster-tag">Adaptation · Physical</span>
+              </div>
+              <p class="poster-desc">ให้ธุรกิจรุกฆาต ด้วยรู้ค้า</p>
+            </article>
+          </li>
+
+          <li class="poster-frame">
+            <article class="poster-card" style="--card-bg: #101319; --tilt: 3deg;">
+              <div class="poster-top">
+                <h3>AGENT<br>RESOURCE</h3>
+                <span class="poster-tag">Adaptation · Digital</span>
+              </div>
+              <p class="poster-desc">Agent ที่เลือก Agent ให้เหมาะกับงานของคุณ</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED EVENTS ============ -->
+    <section class="section" id="events" aria-labelledby="events-title">
+      <div class="container">
+        <header class="section-head section-head--row">
+          <h2 id="events-title" data-i18n="events.title">Selected Events</h2>
+          <p class="muted head-aside" data-i18n="events.lede">Hackathons, workshops, and science communication talks.</p>
+        </header>
+
+        <div class="events-grid">
+          <div class="event-col" style="--accent: var(--ag-sky)">
+            <h3 data-i18n="events.hackTitle">Hackathon &amp; Workshop</h3>
+            <ul class="event-links">
+              <li><a href="https://www.facebook.com/search/top/?q=%23CS50xPuzzleTH2026" target="_blank" rel="noopener noreferrer">#CS50xPuzzleTH2026</a></li>
+              <li><a href="https://www.facebook.com/search/top/?q=%23THEarthDay2026" target="_blank" rel="noopener noreferrer">#THEarthDay2026</a></li>
+              <li><a href="https://www.facebook.com/search/top/?q=%232367Hack" target="_blank" rel="noopener noreferrer">#2367Hack</a></li>
+              <li><a href="https://www.facebook.com/search/top/?q=%23hrihackth2026" target="_blank" rel="noopener noreferrer">#hrihackth2026</a></li>
+            </ul>
+          </div>
+
+          <div class="event-col" style="--accent: var(--ag-peach)">
+            <h3 data-i18n="events.sciTitle">Science Communication</h3>
+            <ul class="event-links">
+              <li><a href="https://youtu.be/yW4EyU0Log4?si=u-cuv4YyWwp6Tost" target="_blank" rel="noopener noreferrer" data-i18n="events.yt1">Science Communication Talk 1 (YouTube)</a></li>
+              <li><a href="https://youtu.be/96NXcqeHQ5o?si=KuAG0O7MeKXzD6ge" target="_blank" rel="noopener noreferrer" data-i18n="events.yt2">Science Communication Talk 2 (YouTube)</a></li>
+              <li><a href="https://www.youtube.com/live/hvm56TTi9pQ?si=lesrXcMoRBRrESqe" target="_blank" rel="noopener noreferrer" data-i18n="events.ytLive">Science Communication Live Session (YouTube)</a></li>
+              <li><a href="https://creativelabth.com/article/mitdecai2025" target="_blank" rel="noopener noreferrer">MIT DecAI 2025 · creativelabth.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPONSORSHIP ============ -->
+    <section class="section" id="sponsorship" aria-labelledby="sponsorship-title">
+      <div class="container">
+        <header class="section-head section-head--row">
+          <h2 id="sponsorship-title" data-i18n="sponsor.title">Sponsorship</h2>
+          <p class="muted head-aside" data-i18n="sponsor.lede">2-month phase. Higher tiers include all benefits from the tiers below them.</p>
+        </header>
+
+        <ul class="sponsor-grid">
+          <li class="sponsor-card" style="--accent: var(--ag-coral)">
+            <div class="sponsor-head">
+              <h3>VIP Sponsor</h3>
+              <p class="price-val">74,000 THB</p>
+            </div>
+            <span class="coming-label" data-i18n="sponsor.vip">Coming soon</span>
+          </li>
+
+          <li class="sponsor-card" style="--accent: var(--ag-sky)">
+            <div class="sponsor-head">
+              <h3>Important Sponsor</h3>
+              <p class="price-val">42,000 THB</p>
+            </div>
+            <ul class="sponsor-benefits">
+              <li data-i18n="sponsor.imp1">2 Free Services</li>
+              <li data-i18n="sponsor.imp2">Equity participation in 2 StartUp projects (สามารถถือหุ้นได้ 2 Project StartUp)</li>
+              <li data-i18n="sponsor.imp3">Free access to the initiative's own dev platform</li>
+              <li data-i18n="sponsor.includesLower">Includes all Premium &amp; Partnership benefits</li>
+            </ul>
+            <a class="ag-button ag-button--ink" href="mailto:agenthro@gmail.com?subject=Sponsorship:%20Important%20Sponsor" data-i18n="sponsor.cta">Inquire</a>
+          </li>
+
+          <li class="sponsor-card" style="--accent: var(--ag-mint)">
+            <div class="sponsor-head">
+              <h3>Premium Sponsor</h3>
+              <p class="price-val">30,000 THB</p>
+            </div>
+            <ul class="sponsor-benefits">
+              <li data-i18n="sponsor.prem1">Co-Dev 2 Projects</li>
+              <li data-i18n="sponsor.prem2">Sponsor Title at every CIA CreativeLab × UTCC event</li>
+              <li data-i18n="sponsor.includesPart">Includes all Partnership benefits</li>
+            </ul>
+            <a class="ag-button ag-button--ink" href="mailto:agenthro@gmail.com?subject=Sponsorship:%20Premium%20Sponsor" data-i18n="sponsor.cta">Inquire</a>
+          </li>
+
+          <li class="sponsor-card" style="--accent: var(--ag-peach)">
+            <div class="sponsor-head">
+              <h3>Partnership</h3>
+              <p class="price-val">0 THB</p>
+            </div>
+            <ul class="sponsor-benefits">
+              <li data-i18n="sponsor.part1">First use of authorized platforms created by the group</li>
+              <li data-i18n="sponsor.part2">Co-use selected resources from UTCC</li>
+            </ul>
+            <a class="ag-button ag-button--ink" href="mailto:agenthro@gmail.com?subject=Sponsorship:%20Partnership" data-i18n="sponsor.cta">Inquire</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PEOPLE (Horizontal Namecard Carousel) ============ -->
+    <section class="section" id="people" aria-labelledby="people-title">
+      <div class="container">
+        <header class="people-header">
+          <div>
+            <h2 id="people-title" data-i18n="people.title">People</h2>
+            <p class="muted" data-i18n="people.lede">Researchers, advisors, engineers, and collaborators behind AGENTHRO.</p>
+          </div>
+          <div class="people-controls">
+            <div class="role-tabs" role="tablist" aria-label="Filter people by role">
+              <button class="role-tab is-active" type="button" role="tab" aria-selected="true" data-filter="all" data-i18n="people.all">All</button>
+              <button class="role-tab" type="button" role="tab" aria-selected="false" data-filter="director">Director</button>
+              <button class="role-tab" type="button" role="tab" aria-selected="false" data-filter="advisor">Advisor</button>
+              <button class="role-tab" type="button" role="tab" aria-selected="false" data-filter="researcher">Researcher</button>
+              <button class="role-tab" type="button" role="tab" aria-selected="false" data-filter="affiliate">Research Affiliate</button>
+            </div>
+            <div class="rail-nav">
+              <button class="tool-btn rail-btn" id="people-prev" type="button" aria-label="Previous namecards">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="tool-btn rail-btn" id="people-next" type="button" aria-label="Next namecards">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <ul class="namecard-rail" id="namecard-rail">
+          <li class="namecard" data-role="director">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">TK</span>
+              <span class="namecard-badge-role">DIRECTOR</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">TAECHASITH KANGKHUNTOD</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">DIRECTOR</p>
+              <p class="namecard-title">Project Managing Officer and Research Scientist</p>
+              <p class="namecard-foot">AGENTHRO / DIRECTOR</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="advisor">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">MB</span>
+              <span class="namecard-badge-role">ADVISOR</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">MANISARA BARAMEECHAI</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">ADVISOR</p>
+              <p class="namecard-title">Business Advisor</p>
+              <p class="namecard-foot">AGENTHRO / ADVISOR</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="advisor">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">WK</span>
+              <span class="namecard-badge-role">ADVISOR</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">WORAPHAT KORKAEW</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">ADVISOR</p>
+              <p class="namecard-title">Technical Advisor and Coordinator</p>
+              <p class="namecard-foot">AGENTHRO / ADVISOR</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="researcher">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">PW</span>
+              <span class="namecard-badge-role">RESEARCHER</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">PHARADEE WASUREE</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCHER</p>
+              <p class="namecard-title">Research Assistance and Event Manager</p>
+              <p class="namecard-foot">AGENTHRO / RESEARCHER</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="researcher">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">PT</span>
+              <span class="namecard-badge-role">RESEARCHER</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">POOWADOL THONTRA</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCHER</p>
+              <p class="namecard-title">Full-Stack Developer and Marketing Manager</p>
+              <p class="namecard-foot">AGENTHRO / RESEARCHER</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">ND</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">NANTITA DAMRONGPANAWAN</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">Full-Stack Designer</p>
+              <p class="namecard-foot">AGENTHRO / RESEARCH AFFILIATE</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">TY</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">TANAPOL YUBONPAN</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">Web Engineer</p>
+              <p class="namecard-foot">AGENTHRO / RESEARCH AFFILIATE</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">KM</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">KITTHIKAN METHEEKULSUMET</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">HRI HACKATHON THAILAND 2026 Winner</p>
+              <p class="namecard-foot">HRI HACKATHON THAILAND 2026</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">MP</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">MONTREE PIMSRI</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">HRI HACKATHON THAILAND 2026 Winner</p>
+              <p class="namecard-foot">HRI HACKATHON THAILAND 2026</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">PK</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">PHIPHATTHANACHAT KHAMMOONMAT</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">HRI HACKATHON THAILAND 2026 Winner</p>
+              <p class="namecard-foot">HRI HACKATHON THAILAND 2026</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">PS</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">PUNNAWICH SOOTTHIMOKE</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">HRI HACKATHON THAILAND 2026 Winner</p>
+              <p class="namecard-foot">HRI HACKATHON THAILAND 2026</p>
+            </div>
+          </li>
+
+          <li class="namecard" data-role="affiliate">
+            <div class="namecard-badge">
+              <span class="namecard-brand">AGENTHRO</span>
+              <span class="namecard-initials" aria-hidden="true">WB</span>
+              <span class="namecard-badge-role">RESEARCH AFFILIATE</span>
+            </div>
+            <div class="namecard-body">
+              <h3 class="namecard-name">WUTTHISAK BOONKAN</h3>
+              <p class="namecard-kicker">PEOPLE / AGENTHRO</p>
+              <p class="namecard-role">RESEARCH AFFILIATE</p>
+              <p class="namecard-title">HRI HACKATHON THAILAND 2026 Winner</p>
+              <p class="namecard-foot">HRI HACKATHON THAILAND 2026</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ JOIN (Wanna Join) ============ -->
+    <section class="wanna-join" id="join" aria-labelledby="join-title">
+      <div class="container wanna-join-inner">
+        <h2 class="wanna-title" id="join-title" data-i18n="join.wanna">WANNA JOIN?</h2>
+        <a class="wanna-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdacSTS7RMqhGMqOQUHmXAWQnUFk7WhDb6jVv2smYzxgY56-w/viewform" target="_blank" rel="noopener noreferrer" data-i18n="join.click">Click this</a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container spread-grid">
+        <div class="spread-aside">
+          <h2 id="about-title">The Agenthropology Initiative</h2>
+        </div>
+        <div class="reading">
+          <p class="body-l" data-i18n="about.p1">AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them.</p>
+          <dl class="about-list">
+            <div><dt class="meta" data-i18n="about.vision">Vision</dt><dd data-i18n="about.visionText">Understanding humans through the agents we create, imagine, and live with.</dd></div>
+            <div><dt class="meta" data-i18n="about.foundation">Foundation</dt><dd>Agents × Anthropology → Agency</dd></div>
+            <div><dt class="meta" data-i18n="about.themes">Research themes</dt><dd>Attribution · Attachment · Authority · Adaptation</dd></div>
+            <div><dt class="meta" data-i18n="about.contact">Contact</dt><dd><a href="mailto:agenthro@gmail.com">agenthro@gmail.com</a></dd></div>
+          </dl>
+          <h3 class="h4" data-i18n="about.principlesTitle">How we work</h3>
+          <ul class="principles">
+            <li><strong data-i18n="about.pr1t">Human before machine.</strong> <span data-i18n="about.pr1">We focus on people, decisions, and relationships, not “AI magic.”</span></li>
+            <li><strong data-i18n="about.pr2t">Research before decoration.</strong> <span data-i18n="about.pr2">Hypotheses, methods, and limitations are easy to find.</span></li>
+            <li><strong data-i18n="about.pr3t">Designed for uncertainty.</strong> <span data-i18n="about.pr3">We say clearly what is a question, a hypothesis, or a finding.</span></li>
+          </ul>
+          <div class="about-note-row">
+            <span class="meta" data-i18n="about.affiliationLabel">Affiliation note</span>
+            <span class="info-tip">
+              <button class="info-tip-btn" type="button" aria-expanded="false" aria-controls="tip-affiliation" aria-label="Note on institutional affiliation">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <span class="info-tip-panel" id="tip-affiliation" role="region" hidden data-i18n="about.affiliation">AGENTHRO is an initiative. Host institutions, sponsors, and research partners are listed here only once formally confirmed for a specific project.</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img class="brand-logo" src="public/brand/agenthro-symbol.webp" width="1049" height="913" alt="" />
+        <div>
+          <p class="footer-wordmark">AGENTHRO</p>
+          <p class="meta">The Agenthropology Initiative</p>
+        </div>
+      </div>
+      <div class="footer-statement">
+        <p class="footer-tagline">We invent others to understand ourselves.</p>
+        <p class="meta">Agents × Anthropology → Agency</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#research" data-i18n="nav.research">Research</a></li>
+          <li><a href="#works" data-i18n="nav.works">Works</a></li>
+          <li><a href="#events" data-i18n="nav.events">Events</a></li>
+          <li><a href="#sponsorship" data-i18n="nav.sponsorship">Sponsor</a></li>
+          <li><a href="#people" data-i18n="nav.people">People</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-base">
+      <p class="meta">© 2026 AGENTHRO · The Agenthropology Initiative</p>
+      <p class="meta"><a class="footer-email" href="mailto:agenthro@gmail.com">agenthro@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="src/scripts/main.js" defer></script>
+</body>
+</html>
