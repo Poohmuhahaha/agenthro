@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agenthro",
+  "compatibility_date": "2026-11-16",
+  "assets": {
+    "directory": "."
+  },
+  "workers_dev": true
+}
