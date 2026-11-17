@@ -760,7 +760,6 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   transform: translate(-50%, -50%) translate(var(--card-x), var(--card-y)) translateY(var(--exit-y))
     rotate(calc(var(--card-rotation) + var(--exit-rotation))) scale(var(--exit-scale));
   transform-origin: 50% 50%;
-  border: 1.5px solid rgb(247 249 255 / 40%);
   border-radius: clamp(2.75rem, 6.6vw, 5.925rem);
   background: #3182f6;
   box-shadow:
