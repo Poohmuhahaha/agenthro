@@ -167,7 +167,7 @@
   if (fpSection && fpCanvas && fpLayer && Array.isArray(window.AGENTHRO_FLOATING_CARDS)) {
     var updateFpScale = function () {
       var rect = fpSection.getBoundingClientRect();
-      var scale = Math.max(rect.width / 1440, rect.height / 1024);
+      var scale = Math.max(rect.width / 1440, rect.height / 1024, rect.width < 900 ? 0.42 : 0);
       fpCanvas.style.transform = 'translateX(-50%) scale(' + scale + ')';
     };
     updateFpScale();
@@ -176,6 +176,11 @@
     } else {
       window.addEventListener('resize', updateFpScale);
     }
+
+    var FP_FONT_MULT = 12;
+    var scalePx = function (val) {
+      return (parseFloat(val) * FP_FONT_MULT) + 'px';
+    };
 
     var fpEls = window.AGENTHRO_FLOATING_CARDS.map(function (c) {
       var slot = document.createElement('div');
@@ -205,12 +210,15 @@
       }
       card.style.borderRadius = c.radius;
 
+      var inner = document.createElement('div');
+      inner.className = 'fp-card-inner';
+
       var titleBox = document.createElement('div');
       titleBox.className = 'fp-card-title';
-      titleBox.style.left = c.tLeft;
-      titleBox.style.top = c.tTop;
-      titleBox.style.width = c.tW;
-      titleBox.style.fontSize = c.tFs;
+      titleBox.style.left = scalePx(c.tLeft);
+      titleBox.style.top = scalePx(c.tTop);
+      titleBox.style.width = scalePx(c.tW);
+      titleBox.style.fontSize = scalePx(c.tFs);
       c.titleLines.forEach(function (line) {
         var lp = document.createElement('p');
         lp.textContent = line;
@@ -219,14 +227,15 @@
 
       var go = document.createElement('p');
       go.className = 'fp-card-go';
-      go.style.left = c.gLeft;
-      go.style.top = c.gTop;
-      go.style.width = c.gW;
-      go.style.fontSize = c.gFs;
+      go.style.left = scalePx(c.gLeft);
+      go.style.top = scalePx(c.gTop);
+      go.style.width = scalePx(c.gW);
+      go.style.fontSize = scalePx(c.gFs);
       go.textContent = c.href ? 'Go to page' : 'Coming soon';
 
-      card.appendChild(titleBox);
-      card.appendChild(go);
+      inner.appendChild(titleBox);
+      inner.appendChild(go);
+      card.appendChild(inner);
       rot.appendChild(card);
       slot.appendChild(rot);
       fpLayer.appendChild(slot);

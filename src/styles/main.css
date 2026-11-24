@@ -279,6 +279,12 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   letter-spacing: -0.04em;
   color: #FFFFFF;
 }
+html[lang="th"] .hero-panel .display {
+  max-width: 1140px;
+  font-size: clamp(38px, 6.4vw, 88px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--ag-space-3); }
 @media (max-width: 899px) {
   .hero-cover {
@@ -499,8 +505,8 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
 }
 @media (max-width: 899px) {
   .hero-code-section {
-    height: 480px;
-    min-height: 0;
+    height: 240px;
+    min-height: 220px;
   }
 }
 .hero-code-canvas {
@@ -549,6 +555,7 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   position: absolute;
   left: 64px;
   top: 76px;
+  z-index: 3;
   width: 374.4px;
   font-family: var(--ag-font-display);
   font-weight: 700;
@@ -557,6 +564,14 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   letter-spacing: -0.025em;
   color: #102c50;
   pointer-events: none;
+}
+@media (max-width: 899px) {
+  .fp-caption {
+    left: 20px;
+    top: 16px;
+    width: auto;
+    font-size: 24px;
+  }
 }
 .fp-cap-1,
 .fp-cap-2 {
@@ -589,6 +604,16 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   transform-origin: 0 0;
   will-change: transform, opacity;
 }
+.fp-card-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1200%;
+  height: 1200%;
+  transform: scale(0.0833333333);
+  transform-origin: 0 0;
+  pointer-events: none;
+}
 .fp-card-title {
   position: absolute;
   font-family: var(--ag-font-display);
@@ -604,6 +629,7 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   font-weight: 500;
   line-height: 1.1;
   text-align: right;
+  white-space: nowrap;
   margin: 0;
 }
 
@@ -1210,6 +1236,7 @@ select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmln
 .footer-inner { display: grid; gap: var(--ag-space-8); padding-bottom: var(--ag-space-12); }
 @media (min-width: 900px) { .footer-inner { grid-template-columns: 1fr 1.4fr auto; align-items: start; } }
 .footer-brand { display: flex; gap: var(--ag-space-3); align-items: center; }
+.footer-logo-full { height: 44px; width: auto; max-width: 100%; object-fit: contain; }
 .footer-wordmark { font-family: var(--ag-font-display); font-weight: 800; font-size: 20px; letter-spacing: .04em; }
 .footer-tagline { font-family: var(--ag-font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: var(--ag-space-2); }
 .footer-nav ul { display: flex; flex-wrap: wrap; gap: var(--ag-space-1) var(--ag-space-4); }
