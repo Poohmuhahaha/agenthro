@@ -199,6 +199,10 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   #lang-toggle { min-width: 44px; padding: 0 10px; }
 }
 
+@media (min-width: 900px) {
+  .nav-lang-item { display: none; }
+}
+
 @media (max-width: 899px) {
   .site-header { padding-inline: 16px; }
   .header-inner { width: 100%; justify-content: space-between; gap: var(--ag-space-2); }
@@ -217,22 +221,48 @@ h4, .h4 { font-size: 20px; line-height: 1.35; font-weight: 650; }
   .primary-nav.is-open { display: block; }
   .primary-nav ul { flex-direction: column; align-items: stretch; gap: 2px; }
   .primary-nav a { width: 100%; font-size: 16px; padding: 10px 14px; border-radius: 12px; }
+  .nav-lang-item {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .nav-lang-btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #101319;
+    font-family: var(--ag-font-ui);
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .nav-lang-btn:hover { background: #e8eef7; }
 }
 
 /* ---------- Brand mark ---------- */
 .brand-logo { width: 34px; height: auto; flex: none; }
+.brand-logo--full { width: auto; height: 52px; max-width: 100%; object-fit: contain; }
+@media (max-width: 899px) {
+  .brand-logo--full { height: 44px; }
+}
+@media (max-width: 374px) {
+  .brand-logo--full { height: 36px; }
+}
 
 /* ---------- Hero Cover (Full-bleed Sky Photo, no white box) ---------- */
 .hero-cover {
   position: relative;
   overflow: hidden;
   background: var(--ag-sky);
-  min-height: 560px;
+  min-height: 590px;
   display: flex;
   align-items: center;
 }
 @media (min-width: 900px) {
-  .hero-cover { min-height: 100dvh; }
+  .hero-cover { min-height: calc(100dvh + 30px); }
 }
 .hero-cover::before {
   content: "";

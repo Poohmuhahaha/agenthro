@@ -96,12 +96,23 @@
     });
     document.getElementById('lang-label').textContent = l === 'th' ? 'EN' : 'TH';
     document.getElementById('lang-toggle').setAttribute('aria-label', MSG[l].lang);
+    var mobileLangBtn = document.getElementById('mobile-lang-toggle');
+    if (mobileLangBtn) {
+      mobileLangBtn.textContent = l === 'th' ? 'English (EN)' : 'ภาษาไทย (TH)';
+      mobileLangBtn.setAttribute('aria-label', MSG[l].lang);
+    }
     syncThemeLabel();
     try { localStorage.setItem('ag-lang', l); } catch (e) {}
   }
   document.getElementById('lang-toggle').addEventListener('click', function () {
     applyLang(lang() === 'th' ? 'en' : 'th');
   });
+  var mobileLangToggle = document.getElementById('mobile-lang-toggle');
+  if (mobileLangToggle) {
+    mobileLangToggle.addEventListener('click', function () {
+      applyLang(lang() === 'th' ? 'en' : 'th');
+    });
+  }
 
   /* ---------- Theme ---------- */
   var themeBtn = document.getElementById('theme-toggle');
