@@ -24,12 +24,15 @@
     'theme.authority': 'การตัดสินใจและการควบคุมถูกมอบหมาย แบ่งปัน หรือดึงกลับคืนมาอย่างไร',
     'theme.adaptation': 'ผู้คนและระบบเปลี่ยนแปลงไปด้วยกันตามกาลเวลาอย่างไร',
     'works.title': 'ผลงานคัดสรร', 'works.lede': 'ต้นแบบเชิงกายภาพและดิจิทัลในประเด็นวิจัยทั้ง 4A',
+    'works.cap1': 'ผลงาน', 'works.cap2': 'คัดสรร',
     'works.physical': 'กายภาพ (Physical)', 'works.digital': 'ดิจิทัล (Digital)',
     'works.oatVideo': 'วิดีโอสาธิตบน YouTube Shorts', 'works.spacechiDoc': 'เอกสารโครงการ (Drive)',
     'works.go': 'ไปที่หน้าเว็บ',
     'services.title': 'บริการ', 'services.lede': 'งานวิจัยประยุกต์ รายงานทางวิทยาศาสตร์ และการสร้างต้นแบบอย่างรวดเร็วสำหรับทีมที่พัฒนาหรือประเมินเอเจนต์',
+    'services.s1': 'Agent Scientific Report',
     'services.s1desc': 'การประเมินทางวิทยาศาสตร์และรายงานปฏิสัมพันธ์ระหว่างมนุษย์กับเอเจนต์สำหรับโครงการของคุณ',
-    'services.s2desc': 'ต้นแบบที่ใช้งานได้จริงอย่างรวดเร็วพร้อมรายงานการประเมินสำหรับโครงการของคุณ',
+    'services.s2': 'Agent Fast Prototyping and Report',
+    'services.s2desc': 'การสร้างต้นแบบเอเจนต์อย่างรวดเร็วพร้อมรายงานการประเมินสำหรับโครงการของคุณ',
     'services.perProject': 'ต่อโครงการ', 'services.cta': 'ติดต่อขอใช้บริการ',
     'events.title': 'กิจกรรมคัดสรร', 'events.lede': 'แฮกกาธอน เวิร์กช็อป และการสื่อสารวิทยาศาสตร์',
     'events.hackTitle': 'แฮกกาธอนและเวิร์กช็อป', 'events.sciTitle': 'การสื่อสารวิทยาศาสตร์',
@@ -38,6 +41,11 @@
     'sponsor.vip': 'เร็ว ๆ นี้', 'sponsor.imp1': 'บริการฟรี 2 ครั้ง', 'sponsor.imp2': 'สามารถถือหุ้นได้ 2 Project StartUp', 'sponsor.imp3': 'ใช้แพลตฟอร์มพัฒนาของโครงการริเริ่มได้ฟรี', 'sponsor.includesLower': 'รวมสิทธิประโยชน์ของ Premium และ Partnership ทั้งหมด',
     'sponsor.prem1': 'ร่วมพัฒนา 2 โครงการ (Co-Dev 2 Project)', 'sponsor.prem2': 'ได้รับชื่อผู้สนับสนุนในทุกกิจกรรม CIA CreativeLab × UTCC', 'sponsor.includesPart': 'รวมสิทธิประโยชน์ของ Partnership ทั้งหมด',
     'sponsor.part1': 'สิทธิ์ใช้งานแพลตฟอร์มที่ได้รับอนุญาตของกลุ่มเป็นกลุ่มแรก', 'sponsor.part2': 'ร่วมใช้ทรัพยากรที่คัดสรรจาก UTCC', 'sponsor.cta': 'ติดต่อสอบถาม',
+    'logos.title': 'ได้รับความไว้วางใจจาก',
+    'logos.lead': 'โครงการริเริ่มและพันธมิตรทางวิชาการ',
+    'logos.vip': 'ผู้สนับสนุนระดับ VIP',
+    'logos.important': 'ผู้สนับสนุนหลัก',
+    'logos.affiliation': 'เครือข่ายความร่วมมือด้านการวิจัย',
     'projects.soon': 'เร็ว ๆ นี้',
     'people.title': 'ทีมงาน', 'people.lede': 'นักวิจัย ที่ปรึกษา วิศวกร และผู้ร่วมงานเบื้องหลัง AGENTHRO',
     'people.all': 'ทั้งหมด',
@@ -349,7 +357,7 @@
     /* Subtle reveal */
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {
-      var targets = document.querySelectorAll('.research-intro, .foundation, .four-a-item, .poster-frame, .event-col, .sponsor-card, .namecard, .wanna-join-inner, .about-lead, .about-contact-card, .about-pillar');
+      var targets = document.querySelectorAll('.research-intro, .foundation, .four-a-item, .service-card, .poster-frame, .event-col, .sponsor-card, .namecard, .wanna-join-inner, .about-lead, .about-contact-card, .about-pillar');
       var rev = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); rev.unobserve(en.target); } });
       }, { rootMargin: '0px 0px -8% 0px' });

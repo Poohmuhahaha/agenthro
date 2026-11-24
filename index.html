@@ -43,6 +43,7 @@
         <ul>
           <li><a href="#research" data-i18n="nav.research">Research</a></li>
           <li><a href="#works" data-i18n="nav.works">Works</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
           <li><a href="#events" data-i18n="nav.events">Events</a></li>
           <li><a href="#sponsorship" data-i18n="nav.sponsorship">Sponsor</a></li>
           <li><a href="#people" data-i18n="nav.people">People</a></li>
@@ -81,26 +82,71 @@
       </div>
     </section>
 
+    <!-- ============ PARTNER & AFFILIATION LOGOS ============ -->
+    <section class="logo-wall" id="affiliations" style="--accent: var(--ag-coral)" aria-labelledby="affiliations-title">
+      <div class="container logo-wall-inner">
+        <h2 class="logo-wall-title" id="affiliations-title" data-i18n="logos.title">We have been trusted by</h2>
+
+        <ul class="logo-strip logo-strip--lead" aria-label="Initiative and Academic Partner">
+          <li class="logo-item logo-item--agenthro">
+            <img src="public/brand/partners/agenthro-full.webp" alt="AGENTHRO — The Agenthropology Initiative" loading="lazy" />
+          </li>
+          <li class="logo-item logo-item--utcc">
+            <img src="public/brand/partners/utcc-engineering.webp" alt="UTCC School of Engineering" loading="lazy" />
+          </li>
+        </ul>
+
+        <div class="logo-group">
+          <h3 class="logo-group-label" data-i18n="logos.vip">VIP Sponsor</h3>
+          <ul class="logo-strip logo-strip--major" aria-label="VIP Sponsor">
+            <li class="logo-item logo-item--major">
+              <img src="public/brand/partners/creativelabth.webp" alt="CreativeLabTH Group" loading="lazy" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="logo-group">
+          <h3 class="logo-group-label" data-i18n="logos.important">Important Sponsor</h3>
+          <ul class="logo-strip logo-strip--major" aria-label="Important Sponsors">
+            <li class="logo-item logo-item--major">
+              <img src="public/brand/partners/tropicaltech.webp" alt="Tropical Tech" loading="lazy" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="logo-group">
+          <h3 class="logo-group-label" data-i18n="logos.affiliation">Research Affiliation</h3>
+          <ul class="logo-strip logo-strip--affiliates" aria-label="Research Affiliations">
+            <li class="logo-item">
+              <img src="public/brand/partners/commonwonder.webp" alt="CommonWonder.Lab" loading="lazy" />
+            </li>
+            <li class="logo-item">
+              <img src="public/brand/partners/peacetech.webp" alt="Peace Tech Inspiration (META PEACE)" loading="lazy" />
+            </li>
+            <li class="logo-item">
+              <img src="public/brand/partners/coeus.webp" alt="Coeus Technology" loading="lazy" />
+            </li>
+            <li class="logo-item">
+              <img src="public/brand/partners/cia-creativelab.webp" alt="CIA CreativeLab" loading="lazy" />
+            </li>
+            <li class="logo-item logo-item--badge">
+              <img src="public/brand/partners/humanoids-asean.webp" alt="Humanoid ASEAN+" loading="lazy" />
+            </li>
+            <li class="logo-item logo-item--badge">
+              <img src="public/brand/partners/humanoids-thailand.webp" alt="Humanoid Thailand" loading="lazy" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ RESEARCH / FRAMEWORK ============ -->
     <section class="section" id="research" aria-labelledby="research-title">
       <div class="container research-stack">
-        <div class="research-hero-row">
-          <header class="research-intro">
-            <h2 id="research-title" data-i18n="research.title">Understanding humans through the agents we create, imagine, and live with.</h2>
-            <p class="muted" data-i18n="research.lede">Agenthropology is a proposed research concept: studying people by studying the relationships they build with artificial and imagined agents.</p>
-          </header>
-
-          <!-- 3A foundation -->
-          <div class="foundation" role="group" aria-label="Agents times Anthropology leads to Agency.">
-            <p class="equation-line">
-              <span>Agents</span>
-              <span class="eq-op" aria-hidden="true">×</span>
-              <span>Anthropology</span>
-              <span class="eq-op" aria-hidden="true">→</span>
-              <span class="eq-result">Agency.</span>
-            </p>
-          </div>
-        </div>
+        <header class="section-head section-head--row">
+          <h2 id="research-title" data-i18n="research.title">Understanding humans through the agents we create, imagine, and live with.</h2>
+          <p class="muted head-aside" data-i18n="research.lede">Agenthropology is a proposed research concept: studying people by studying the relationships they build with artificial and imagined agents.</p>
+        </header>
 
         <!-- 4A themes strip -->
         <ul class="four-a-strip" aria-label="Four research themes">
@@ -131,12 +177,48 @@
           <div class="fp-spiral-wrap">
             <img alt="" class="fp-spiral-img" src="public/assets/cad7c.svg" />
           </div>
-          <div class="fp-caption">
-            <p class="fp-cap-1">SELECTED</p>
-            <p class="fp-cap-2">PROJECTS</p>
-          </div>
+          <h2 class="fp-caption">
+            <span class="fp-cap-1" data-i18n="works.cap1">SELECTED</span>
+            <span class="fp-cap-2" data-i18n="works.cap2">PROJECTS</span>
+          </h2>
           <div class="fp-cards-layer" id="floating-cards-layer"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head section-head--row">
+          <h2 id="services-title" data-i18n="services.title">Services</h2>
+          <p class="muted head-aside" data-i18n="services.lede">Applied research, scientific reporting, and rapid prototyping for teams building or evaluating agents.</p>
+        </header>
+
+        <ul class="services-list">
+          <li class="service-card" style="--accent: var(--ag-sky)">
+            <div class="service-main">
+              <h3 data-i18n="services.s1">Agent Scientific Report</h3>
+              <p class="muted" data-i18n="services.s1desc">Scientific evaluation and human–agent interaction report for your project.</p>
+            </div>
+            <div class="service-price">
+              <span class="price-val">30,000 THB</span>
+              <span class="meta" data-i18n="services.perProject">per project</span>
+            </div>
+            <a class="ag-button ag-button--ink" href="mailto:agenthro@gmail.com?subject=Service:%20Agent%20Scientific%20Report" data-i18n="services.cta">Request service</a>
+          </li>
+
+          <li class="service-card" style="--accent: var(--ag-mint)">
+            <div class="service-main">
+              <h3 data-i18n="services.s2">Agent Fast Prototyping and Report</h3>
+              <p class="muted" data-i18n="services.s2desc">Fast working agent prototype paired with an evaluation report for your project.</p>
+            </div>
+            <div class="service-price">
+              <span class="price-val">42,000 THB</span>
+              <span class="meta" data-i18n="services.perProject">per project</span>
+            </div>
+            <a class="ag-button ag-button--ink" href="mailto:agenthro@gmail.com?subject=Service:%20Agent%20Fast%20Prototyping%20and%20Report" data-i18n="services.cta">Request service</a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -234,11 +316,9 @@
     <!-- ============ PEOPLE (Scroll-Driven Stacked Card Deck) ============ -->
     <section class="section people-deck-section" id="people" aria-labelledby="people-title">
       <div class="container">
-        <header class="people-header">
-          <div>
-            <h2 id="people-title" data-i18n="people.title">People</h2>
-            <p class="muted" data-i18n="people.lede">Researchers, advisors, engineers, and collaborators behind AGENTHRO.</p>
-          </div>
+        <header class="section-head section-head--row">
+          <h2 id="people-title" data-i18n="people.title">People</h2>
+          <p class="muted head-aside" data-i18n="people.lede">Researchers, advisors, engineers, and collaborators behind AGENTHRO.</p>
         </header>
       </div>
 
@@ -414,25 +494,10 @@
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container about-stack">
-        <div class="about-top">
-          <div class="about-lead">
-            <h2 id="about-title">The Agenthropology Initiative</h2>
-            <p class="body-l muted" data-i18n="about.p1">AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them.</p>
-          </div>
-
-          <div class="about-contact-card">
-            <div class="about-contact-head">
-              <span class="meta" data-i18n="about.contact">Contact</span>
-              <span class="info-tip">
-                <button class="info-tip-btn info-tip-btn--on-ink" type="button" aria-expanded="false" aria-controls="tip-affiliation" aria-label="Note on institutional affiliation">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </button>
-                <span class="info-tip-panel info-tip-panel--right" id="tip-affiliation" role="region" hidden data-i18n="about.affiliation">AGENTHRO is an initiative. Host institutions, sponsors, and research partners are listed here only once formally confirmed for a specific project.</span>
-              </span>
-            </div>
-            <a class="about-email" href="mailto:agenthro@gmail.com">agenthro@gmail.com</a>
-          </div>
-        </div>
+        <header class="section-head section-head--row">
+          <h2 id="about-title">The Agenthropology Initiative</h2>
+          <p class="muted head-aside" data-i18n="about.p1">AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them.</p>
+        </header>
 
         <ul class="about-pillars">
           <li class="about-pillar" style="--accent: var(--ag-sky-light)">
@@ -470,6 +535,7 @@
         <ul>
           <li><a href="#research" data-i18n="nav.research">Research</a></li>
           <li><a href="#works" data-i18n="nav.works">Works</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
           <li><a href="#events" data-i18n="nav.events">Events</a></li>
           <li><a href="#sponsorship" data-i18n="nav.sponsorship">Sponsor</a></li>
           <li><a href="#people" data-i18n="nav.people">People</a></li>
