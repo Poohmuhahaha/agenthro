@@ -15,6 +15,7 @@
 		{
 			"binding": "DB",
 			"database_name": "agenthro-prod-db",
+			"database_id": "1a51e68c-009b-42ce-9ab7-4c7a7c8918e5",
 		},
 	],
 	"r2_buckets": [
