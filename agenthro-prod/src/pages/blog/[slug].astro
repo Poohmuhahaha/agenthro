@@ -1,0 +1,181 @@
+---
+import { decodeSlug, getEmDashCollection, getEmDashEntry, getTermsForEntries } from "emdash";
+import { Image, PortableText } from "emdash/ui";
+import AgenthroLayout from "../../layouts/AgenthroLayout.astro";
+import { blogAccent } from "../../utils/blog-accent";
+import { formatReadingTime, getReadingTime } from "../../utils/reading-time";
+import "../../styles/agenthro-blog.css";
+
+const slug = decodeSlug(Astro.params.slug);
+
+if (!slug) {
+	return Astro.rewrite("/404");
+}
+
+const { entry: post, cacheHint } = await getEmDashEntry("posts", slug);
+
+if (!post) {
+	return Astro.rewrite("/404");
+}
+
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+	day: "numeric",
+	month: "long",
+	year: "numeric",
+});
+
+const publishedAt = post.data.publishedAt ?? null;
+const published = publishedAt ? dateFormatter.format(publishedAt) : null;
+const readingTime = formatReadingTime(getReadingTime(post.data.content));
+
+const categories = await getTermsForEntries("posts", [post.data.id], "category");
+const category = categories.get(post.data.id)?.[0];
+
+const accent = blogAccent(category?.slug ?? post.id);
+
+const { entries: relatedCandidates, cacheHint: relatedHint } = await getEmDashCollection("posts", {
+	status: "published",
+	orderBy: { published_at: "desc" },
+	limit: 12,
+});
+
+if (Astro.cache?.enabled) Astro.cache.set(relatedHint);
+
+const relatedCategories = await getTermsForEntries(
+	"posts",
+	relatedCandidates.map((entry) => entry.data.id),
+	"category",
+);
+
+const candidates = relatedCandidates.filter((entry) => entry.data.id !== post.data.id);
+const sameCategory = candidates.filter((entry) => {
+	const term = relatedCategories.get(entry.data.id)?.[0];
+	return Boolean(category?.slug) && term?.slug === category?.slug;
+});
+const sameCategoryIds = new Set(sameCategory.map((entry) => entry.data.id));
+
+const related = [...sameCategory, ...candidates.filter((entry) => !sameCategoryIds.has(entry.data.id))]
+	.slice(0, 3)
+	.map((entry, index) => {
+		const term = relatedCategories.get(entry.data.id)?.[0];
+		const entryDate = entry.data.publishedAt ?? null;
+		return {
+			post: entry,
+			number: String(index + 1).padStart(2, "0"),
+			accent: blogAccent(term?.slug ?? entry.data.id),
+			published: entryDate ? dateFormatter.format(entryDate) : null,
+			readingTime: formatReadingTime(getReadingTime(entry.data.content)),
+		};
+	});
+
+function getImageUrl(image: unknown): string | undefined {
+	if (!image || typeof image !== "object") return undefined;
+	const value = image as Record<string, unknown>;
+	if (typeof value.src === "string" && value.src) {
+		return value.src.startsWith("http") ? value.src : `${Astro.url.origin}${value.src}`;
+	}
+	const meta = value.meta as Record<string, unknown> | undefined;
+	const storageKey =
+		(typeof meta?.storageKey === "string" ? meta.storageKey : undefined) ||
+		(typeof value.id === "string" ? value.id : undefined);
+	return storageKey ? `${Astro.url.origin}/_emdash/api/media/file/${storageKey}` : undefined;
+}
+---
+
+<AgenthroLayout
+	title={`${post.data.title || "Untitled"} — AGENTHRO Blog`}
+	description={post.data.excerpt ?? null}
+	isHome={false}
+	type="article"
+	content={{ collection: "posts", id: post.data.id, slug }}
+	image={getImageUrl(post.data.featured_image)}
+	publishedTime={publishedAt?.toISOString() ?? null}
+	modifiedTime={post.data.updatedAt.toISOString()}
+>
+	<article class="section blog-page">
+		<div class="container">
+			<div class="blog-post" style={`--accent: ${accent}`}>
+				<a class="blog-post__back" href="/blog">← All posts</a>
+
+				<h1 {...post.edit.title}>{post.data.title || "Untitled"}</h1>
+
+				{post.data.excerpt && (
+					<p class="blog-post__excerpt" {...post.edit.excerpt}>{post.data.excerpt}</p>
+				)}
+
+				{post.data.featured_image && (
+					<figure class="blog-cover" {...post.edit.featured_image}>
+						<Image
+							image={post.data.featured_image}
+							sizes="(min-width: 900px) 860px, 100vw"
+							priority
+						/>
+					</figure>
+				)}
+
+				<p class="blog-post__meta">
+					{published && <time datetime={publishedAt?.toISOString()}>{published}</time>}
+					<span>{readingTime}</span>
+				</p>
+
+				<div class="ag-prose" data-post-content>
+					<PortableText value={post.data.content} />
+				</div>
+
+				{related.length > 0 && (
+					<section class="blog-related" aria-labelledby="related-title">
+						<div class="blog-related__head">
+							<h2 id="related-title">Related posts</h2>
+							<a class="blog-related__all" href="/blog">All posts →</a>
+						</div>
+						<ul class="blog-grid">
+							{related.map((entry) => (
+								<li>
+									<article class="blog-card" style={`--accent: ${entry.accent}`}>
+										<a
+											class="blog-card__media blog-media"
+											href={`/blog/${entry.post.id}`}
+											tabindex="-1"
+											aria-hidden="true"
+										>
+											{entry.post.data.featured_image ? (
+												<Image
+													image={entry.post.data.featured_image}
+													sizes="(min-width: 1080px) 280px, (min-width: 700px) 45vw, 100vw"
+												/>
+											) : (
+												<div class="blog-poster" aria-hidden="true">
+													<span class="blog-poster__index">{entry.number}</span>
+												</div>
+											)}
+										</a>
+										<div class="blog-card__body">
+											<h3 class="blog-card__title">
+												<a href={`/blog/${entry.post.id}`}>
+													{entry.post.data.title || "Untitled"}
+												</a>
+											</h3>
+											{entry.post.data.excerpt && (
+												<p class="blog-card__excerpt">{entry.post.data.excerpt}</p>
+											)}
+											<p class="blog-meta">
+												{entry.published && (
+													<time datetime={entry.post.data.publishedAt?.toISOString()}>
+														{entry.published}
+													</time>
+												)}
+												<span>{entry.readingTime}</span>
+											</p>
+										</div>
+									</article>
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+			</div>
+		</div>
+	</article>
+</AgenthroLayout>

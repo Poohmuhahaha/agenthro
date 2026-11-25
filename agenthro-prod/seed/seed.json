@@ -1,0 +1,3278 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "AGENTHRO",
+		"description": "AGENTHRO — The Agenthropology Initiative",
+		"author": "AGENTHRO"
+	},
+	"settings": {
+		"title": "AGENTHRO",
+		"tagline": "We invent others to understand ourselves."
+	},
+	"collections": [
+		{
+			"slug": "posts",
+			"label": "Posts",
+			"labelSingular": "Post",
+			"urlPattern": "/blog/{slug}",
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
+			"commentsEnabled": true,
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "featured_image",
+					"label": "Featured Image",
+					"type": "image"
+				},
+				{
+					"slug": "content",
+					"label": "Content",
+					"type": "portableText",
+					"searchable": true
+				},
+				{
+					"slug": "excerpt",
+					"label": "Excerpt",
+					"type": "text"
+				}
+			]
+		},
+		{
+			"slug": "pages",
+			"label": "Pages",
+			"labelSingular": "Page",
+			"urlPattern": "/pages/{slug}",
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "content",
+					"label": "Content",
+					"type": "portableText",
+					"searchable": true
+				}
+			]
+		},
+		{
+			"slug": "sections",
+			"label": "Page Sections",
+			"labelSingular": "Section",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"searchable": true
+				},
+				{
+					"slug": "eyebrow",
+					"label": "Eyebrow",
+					"type": "string"
+				},
+				{
+					"slug": "lede",
+					"label": "Lede",
+					"type": "text"
+				},
+				{
+					"slug": "caption1",
+					"label": "Caption line 1",
+					"type": "string"
+				},
+				{
+					"slug": "caption2",
+					"label": "Caption line 2",
+					"type": "string"
+				},
+				{
+					"slug": "cta1_label",
+					"label": "Primary button label",
+					"type": "string"
+				},
+				{
+					"slug": "cta1_url",
+					"label": "Primary button URL",
+					"type": "url"
+				},
+				{
+					"slug": "cta2_label",
+					"label": "Secondary button label",
+					"type": "string"
+				},
+				{
+					"slug": "cta2_url",
+					"label": "Secondary button URL",
+					"type": "url"
+				},
+				{
+					"slug": "link_label",
+					"label": "Link label",
+					"type": "string"
+				},
+				{
+					"slug": "link_url",
+					"label": "Link URL",
+					"type": "url"
+				},
+				{
+					"slug": "image",
+					"label": "Image",
+					"type": "image"
+				},
+				{
+					"slug": "image_alt",
+					"label": "Image alt text",
+					"type": "string"
+				},
+				{
+					"slug": "vip_label",
+					"label": "Logo group: VIP",
+					"type": "string"
+				},
+				{
+					"slug": "important_label",
+					"label": "Logo group: Important",
+					"type": "string"
+				},
+				{
+					"slug": "affiliation_label",
+					"label": "Logo group: Affiliation",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"slug": "projects",
+			"label": "Projects",
+			"labelSingular": "Project",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "text",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "url",
+					"label": "Project URL",
+					"type": "url"
+				},
+				{
+					"slug": "cover",
+					"label": "Cover image",
+					"type": "image"
+				},
+				{
+					"slug": "background",
+					"label": "Card background",
+					"type": "string"
+				},
+				{
+					"slug": "coming_soon",
+					"label": "Coming soon",
+					"type": "boolean"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "research_themes",
+			"label": "Research Themes",
+			"labelSingular": "Research Theme",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "description",
+					"label": "Description",
+					"type": "text"
+				},
+				{
+					"slug": "description_i18n",
+					"label": "Translation key",
+					"type": "string"
+				},
+				{
+					"slug": "accent",
+					"label": "Accent",
+					"type": "string"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "services",
+			"label": "Services",
+			"labelSingular": "Service",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "description",
+					"label": "Description",
+					"type": "text"
+				},
+				{
+					"slug": "price",
+					"label": "Price",
+					"type": "string"
+				},
+				{
+					"slug": "cta_label",
+					"label": "CTA label",
+					"type": "string"
+				},
+				{
+					"slug": "cta_url",
+					"label": "CTA URL",
+					"type": "url"
+				},
+				{
+					"slug": "accent",
+					"label": "Accent",
+					"type": "string"
+				},
+				{
+					"slug": "title_i18n",
+					"label": "Title translation key",
+					"type": "string"
+				},
+				{
+					"slug": "description_i18n",
+					"label": "Description translation key",
+					"type": "string"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "events",
+			"label": "Event Groups",
+			"labelSingular": "Event Group",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "title_i18n",
+					"label": "Title translation key",
+					"type": "string"
+				},
+				{
+					"slug": "cover",
+					"label": "Cover image",
+					"type": "image"
+				},
+				{
+					"slug": "accent",
+					"label": "Accent",
+					"type": "string"
+				},
+				{
+					"slug": "links",
+					"label": "Links",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "label",
+								"label": "Label",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "url",
+								"label": "URL",
+								"type": "url"
+							},
+							{
+								"slug": "poster",
+								"label": "Poster image",
+								"type": "image"
+							},
+							{
+								"slug": "i18n_key",
+								"label": "Translation key",
+								"type": "string"
+							}
+						]
+					}
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "sponsor_tiers",
+			"label": "Sponsorship Tiers",
+			"labelSingular": "Sponsorship Tier",
+			"fields": [
+				{
+					"slug": "name",
+					"label": "Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "price",
+					"label": "Price",
+					"type": "string"
+				},
+				{
+					"slug": "benefits",
+					"label": "Benefits",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "text",
+								"label": "Text",
+								"type": "text",
+								"required": true
+							},
+							{
+								"slug": "i18n_key",
+								"label": "Translation key",
+								"type": "string"
+							}
+						]
+					}
+				},
+				{
+					"slug": "cta_label",
+					"label": "CTA label",
+					"type": "string"
+				},
+				{
+					"slug": "cta_url",
+					"label": "CTA URL",
+					"type": "url"
+				},
+				{
+					"slug": "coming_soon",
+					"label": "Coming soon",
+					"type": "boolean"
+				},
+				{
+					"slug": "accent",
+					"label": "Accent",
+					"type": "string"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "sponsors",
+			"label": "Sponsors & Partners",
+			"labelSingular": "Sponsor",
+			"fields": [
+				{
+					"slug": "name",
+					"label": "Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "logo",
+					"label": "Logo",
+					"type": "image"
+				},
+				{
+					"slug": "tier",
+					"label": "Tier",
+					"type": "select",
+					"validation": {
+						"options": [
+							"lead",
+							"vip",
+							"important",
+							"affiliation"
+						]
+					}
+				},
+				{
+					"slug": "logo_class",
+					"label": "CSS class",
+					"type": "string"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "people",
+			"label": "People",
+			"labelSingular": "Person",
+			"fields": [
+				{
+					"slug": "name",
+					"label": "Name",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "role",
+					"label": "Role",
+					"type": "string"
+				},
+				{
+					"slug": "role_multiline",
+					"label": "Role on multiple lines",
+					"type": "boolean"
+				},
+				{
+					"slug": "description",
+					"label": "Description",
+					"type": "text"
+				},
+				{
+					"slug": "footer",
+					"label": "Footer line",
+					"type": "string"
+				},
+				{
+					"slug": "initials",
+					"label": "Initials",
+					"type": "string"
+				},
+				{
+					"slug": "eyebrow",
+					"label": "Eyebrow",
+					"type": "string"
+				},
+				{
+					"slug": "portrait",
+					"label": "Portrait",
+					"type": "image"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		},
+		{
+			"slug": "about_principles",
+			"label": "About Principles",
+			"labelSingular": "Principle",
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "body",
+					"label": "Body",
+					"type": "text"
+				},
+				{
+					"slug": "title_i18n",
+					"label": "Title translation key",
+					"type": "string"
+				},
+				{
+					"slug": "body_i18n",
+					"label": "Body translation key",
+					"type": "string"
+				},
+				{
+					"slug": "accent",
+					"label": "Accent",
+					"type": "string"
+				},
+				{
+					"slug": "sort",
+					"label": "Sort order",
+					"type": "integer"
+				}
+			]
+		}
+	],
+	"taxonomies": [
+		{
+			"name": "category",
+			"label": "Categories",
+			"labelSingular": "Category",
+			"hierarchical": true,
+			"collections": [
+				"posts"
+			],
+			"terms": [
+				{
+					"slug": "development",
+					"label": "Development"
+				},
+				{
+					"slug": "design",
+					"label": "Design"
+				},
+				{
+					"slug": "notes",
+					"label": "Notes"
+				},
+				{
+					"slug": "research",
+					"label": "Research"
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"label": "Tags",
+			"labelSingular": "Tag",
+			"hierarchical": false,
+			"collections": [
+				"posts"
+			],
+			"terms": [
+				{
+					"slug": "webdev",
+					"label": "Web Development"
+				},
+				{
+					"slug": "opinion",
+					"label": "Opinion"
+				},
+				{
+					"slug": "tools",
+					"label": "Tools"
+				},
+				{
+					"slug": "creativity",
+					"label": "Creativity"
+				}
+			]
+		}
+	],
+	"bylines": [
+		{
+			"id": "byline-editorial",
+			"slug": "emdash-editorial",
+			"displayName": "EmDash Editorial"
+		},
+		{
+			"id": "byline-guest",
+			"slug": "guest-contributor",
+			"displayName": "Guest Contributor",
+			"isGuest": true
+		}
+	],
+	"menus": [
+		{
+			"name": "primary",
+			"label": "Primary Navigation",
+			"items": [
+				{
+					"type": "custom",
+					"label": "Research",
+					"url": "/#research"
+				},
+				{
+					"type": "custom",
+					"label": "Works",
+					"url": "/#works"
+				},
+				{
+					"type": "custom",
+					"label": "Services",
+					"url": "/#services"
+				},
+				{
+					"type": "custom",
+					"label": "Events",
+					"url": "/#events"
+				},
+				{
+					"type": "custom",
+					"label": "Sponsor",
+					"url": "/#sponsorship"
+				},
+				{
+					"type": "custom",
+					"label": "People",
+					"url": "/#people"
+				},
+				{
+					"type": "custom",
+					"label": "About",
+					"url": "/#about"
+				},
+				{
+					"type": "custom",
+					"label": "Blog",
+					"url": "/blog"
+				}
+			]
+		}
+	],
+	"widgetAreas": [
+		{
+			"name": "sidebar",
+			"label": "Sidebar",
+			"description": "Widget area displayed on single post pages",
+			"widgets": [
+				{
+					"type": "component",
+					"componentId": "core:search",
+					"title": "Search"
+				},
+				{
+					"type": "component",
+					"componentId": "core:categories",
+					"title": "Categories"
+				},
+				{
+					"type": "component",
+					"componentId": "core:tags",
+					"title": "Tags"
+				},
+				{
+					"type": "component",
+					"componentId": "core:recent-posts",
+					"title": "Recent Posts",
+					"props": {
+						"count": 5,
+						"showDate": true
+					}
+				},
+				{
+					"type": "component",
+					"componentId": "core:archives",
+					"title": "Archives",
+					"props": {
+						"type": "monthly",
+						"limit": 6
+					}
+				}
+			]
+		},
+		{
+			"name": "footer",
+			"label": "Footer",
+			"description": "Widget area displayed in the site footer",
+			"widgets": [
+				{
+					"type": "content",
+					"title": "About",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A blog about software, design, and the occasional stray thought.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						}
+					]
+				}
+			]
+		}
+	],
+	"sections": [
+		{
+			"slug": "newsletter-signup",
+			"title": "Newsletter Signup",
+			"description": "A call-to-action block for newsletter subscriptions",
+			"keywords": [
+				"newsletter",
+				"subscribe",
+				"email",
+				"cta"
+			],
+			"source": "theme",
+			"content": [
+				{
+					"_type": "block",
+					"style": "h3",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Stay in the loop",
+							"_key": "k1"
+						}
+					],
+					"_key": "k0"
+				},
+				{
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "Get notified when new posts are published. No spam, unsubscribe anytime.",
+							"_key": "k3"
+						}
+					],
+					"_key": "k2"
+				}
+			]
+		},
+		{
+			"slug": "about-author",
+			"title": "About the Author",
+			"description": "Brief author bio for use in posts or pages",
+			"keywords": [
+				"author",
+				"bio",
+				"about"
+			],
+			"source": "theme",
+			"content": [
+				{
+					"_type": "block",
+					"style": "normal",
+					"children": [
+						{
+							"_type": "span",
+							"text": "A software developer who writes about building things on the web. Based somewhere with good coffee and reliable internet.",
+							"_key": "k1"
+						}
+					],
+					"_key": "k0"
+				}
+			]
+		}
+	],
+	"content": {
+		"pages": [
+			{
+				"id": "about",
+				"slug": "about",
+				"status": "published",
+				"data": {
+					"title": "About",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A place for writing about software, design, and the occasional stray thought. No posting schedule, no newsletter funnel. Just things I wanted to write down.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Built with Astro and EmDash. The source is open if you want to see how it works.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						}
+					]
+				}
+			}
+		],
+		"posts": [
+			{
+				"id": "post-1",
+				"slug": "building-for-the-long-term",
+				"status": "draft",
+				"data": {
+					"title": "Building for the Long Term",
+					"excerpt": "The frameworks will change. The databases will change. What survives is the clarity of your thinking.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
+							"alt": "Code on a monitor in a dark room",
+							"filename": "building-long-term.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Every few years the industry collectively decides that everything we've been doing is wrong and there's a better way. New frameworks, new paradigms, new build tools. The churn is relentless, and if you're not careful, you spend more time migrating than building.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "I've been writing software long enough to have seen several of these cycles. jQuery to Backbone to Angular to React to whatever comes next. Each transition felt urgent at the time. Looking back, the things that actually mattered were rarely about the framework.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What survives",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Clean data models survive. Clear boundaries between systems survive. Good naming survives. The decision to keep things simple when you could have made them clever - that definitely survives.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What doesn't survive is code that was written to impress, abstractions built for problems that never materialized, and architectures designed around a framework's opinions rather than the domain's reality.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The best code I've written is boring. It reads like prose, does one thing well, and doesn't require a PhD in category theory to understand. The worst code I've written was technically impressive at the time.",
+									"_key": "k11"
+								}
+							],
+							"_key": "k10"
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					},
+					{
+						"byline": "byline-guest",
+						"roleLabel": "Guest essay"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"development"
+					],
+					"tag": [
+						"opinion"
+					]
+				}
+			},
+			{
+				"id": "post-2",
+				"slug": "the-case-for-static",
+				"status": "draft",
+				"data": {
+					"title": "The Case for Static",
+					"excerpt": "Static sites aren't a step backwards. They're what you get when you take performance and simplicity seriously.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
+							"alt": "Laptop and coffee on a wooden table",
+							"filename": "case-for-static.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "There's a certain irony in the fact that the web started static, went dynamic, and is now swinging back toward static again. But the static sites of today aren't the hand-coded HTML pages of 1998. They're generated, optimized, and deployed to edge networks that serve them in milliseconds.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The pitch for server-rendered everything was compelling: dynamic content, personalization, real-time data. But most sites don't need most of that most of the time. A blog post doesn't need to be rendered on every request. A product page doesn't change every second.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The performance argument",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A static file served from a CDN is as fast as the web gets. No cold starts, no database queries, no server-side rendering overhead. The Time to First Byte is essentially the network latency to your nearest edge node. You can't beat physics.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "And when you do need dynamic behavior, you can add it surgically. An island of interactivity in a sea of static HTML. The best of both worlds, without paying the cost of either at all times.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"development"
+					],
+					"tag": [
+						"webdev",
+						"opinion"
+					]
+				}
+			},
+			{
+				"id": "post-3",
+				"slug": "learning-in-public",
+				"status": "draft",
+				"data": {
+					"title": "Learning in Public",
+					"excerpt": "Writing about what you're learning is the fastest way to find out what you don't actually understand.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1200&h=800&fit=crop",
+							"alt": "Notebook and pen on a desk",
+							"filename": "learning-in-public.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "I started writing about things I was learning not because I had anything original to say, but because I kept forgetting what I'd figured out. The blog posts were notes to my future self, published publicly more out of laziness than courage.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What I didn't expect was how much the writing itself would accelerate the learning. There's a particular kind of clarity that comes from trying to explain something to someone else. The gaps in your understanding, which you can happily ignore when the knowledge lives only in your head, become painfully obvious when you try to put it into sentences.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The fear of being wrong",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The biggest barrier isn't time or writing skill. It's the fear of publishing something that turns out to be wrong. But here's the thing: being wrong publicly is one of the most efficient ways to learn. Someone will correct you, often kindly, and you'll remember that correction forever.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The posts that helped me most weren't written by experts. They were written by people one step ahead of me on the same path, in language that hadn't yet been polished into abstraction. There's a place for that kind of writing, and it's more valuable than most people realize.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"notes"
+					],
+					"tag": [
+						"opinion"
+					]
+				}
+			},
+			{
+				"id": "post-4",
+				"slug": "small-tools-big-impact",
+				"status": "draft",
+				"data": {
+					"title": "Small Tools, Big Impact",
+					"excerpt": "The best developer tools do one thing well and get out of your way. A love letter to focused software.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1575026615908-666710ae5e47?w=1200&h=800&fit=crop",
+							"alt": "Wrenches and hand tools hanging on a workshop wall",
+							"filename": "small-tools.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "There's a class of software that doesn't get enough appreciation. Not the frameworks or the platforms or the IDEs, but the small, sharp tools that solve one problem so well you stop thinking about them. They become invisible, which is the highest compliment you can pay a tool.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "I'm talking about things like ripgrep, which searches code so fast it changed how I think about searching. Or jq, which makes JSON feel like a first-class data format in the terminal. Or curl, which has been quietly powering the internet's plumbing for decades.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The Unix philosophy, revisited",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Do one thing well. The advice is old enough to be a cliche, but the best modern tools still follow it. They don't try to be platforms. They don't have plugin ecosystems or configuration languages or startup wizards. They do their job and they compose with other tools that do theirs.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The temptation is always to add more. One more feature, one more option, one more integration. But every addition is a decision someone has to make, a path through the code that has to be maintained, a thing that can break. The best tools resist this. They stay small, and in staying small, they stay reliable.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"development"
+					],
+					"tag": [
+						"tools"
+					]
+				}
+			},
+			{
+				"id": "post-5",
+				"slug": "designing-with-constraints",
+				"status": "draft",
+				"data": {
+					"title": "Designing with Constraints",
+					"excerpt": "Limitations aren't obstacles to creativity. They're the structure that makes creativity possible.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1200&h=800&fit=crop",
+							"alt": "Pencils and design tools on a desk",
+							"filename": "designing-with-constraints.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Give a designer a blank canvas and unlimited time, and they'll often produce something mediocre. Give them a tight brief, a small screen, and a deadline, and they'll surprise you. This isn't a paradox - it's how creativity actually works.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Constraints force decisions. When you can't use more than two typefaces, you have to choose carefully. When the page has to load in under a second, every element earns its place. When the interface has to work on a 320px screen, you discover what's truly essential.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Embracing the box",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The web itself is a constraint. HTML flows in one direction. CSS has a box model. Browsers have viewport sizes and font rendering quirks. You can fight these constraints or you can work with them, and the results are dramatically different.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The designs I admire most don't look like they were forced through a framework. They look like they grew naturally from the medium, respecting its grain rather than working against it. That only happens when you treat constraints as creative partners rather than enemies.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"design"
+					],
+					"tag": [
+						"creativity"
+					]
+				}
+			},
+			{
+				"id": "post-6",
+				"slug": "a-weekend-with-a-side-project",
+				"status": "draft",
+				"data": {
+					"title": "A Weekend with a Side Project",
+					"excerpt": "No stakeholders, no deadlines, no Jira tickets. Just you and a dumb idea that might turn into something.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=800&fit=crop",
+							"alt": "Code on a screen with a dark theme",
+							"filename": "weekend-side-project.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Saturday morning. Coffee's made, the house is quiet, and I've got an idea that's been nagging at me all week. Not a good idea, necessarily - just a persistent one. A small tool that does a thing I keep doing manually. How hard could it be?",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "This is the best kind of programming. No requirements document, no sprint planning, no pull request reviews. Just a text editor and a problem. The freedom to make terrible architectural decisions, rewrite everything twice, and follow tangents that turn out to be dead ends.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Why side projects matter",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Side projects are where you learn things your day job would never teach you. Not because the problems are harder, but because you're free to take risks. Try a language you've never used. Build something without a framework. Deploy to a platform you've only read about. The stakes are zero, which makes the learning maximum.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "By Sunday evening, the thing sort of works. It's rough, the error handling is nonexistent, and the README is a single sentence. But it solves the problem I set out to solve, and I learned three things I didn't know on Friday. Not a bad weekend.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"development"
+					],
+					"tag": [
+						"creativity"
+					]
+				}
+			},
+			{
+				"id": "post-7",
+				"slug": "notes-on-simplicity",
+				"status": "draft",
+				"data": {
+					"title": "Notes on Simplicity",
+					"excerpt": "Simplicity isn't the absence of complexity. It's the result of understanding a problem well enough to solve it cleanly.",
+					"featured_image": {
+						"$media": {
+							"url": "https://images.unsplash.com/photo-1559051668-e1fa58f25786?w=1200&h=800&fit=crop",
+							"alt": "Geometric pattern carved into white paper",
+							"filename": "notes-on-simplicity.jpg"
+						}
+					},
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Every piece of software starts simple. A few files, a clear purpose, a small surface area. Then features get added, edge cases get handled, and before long you're looking at something that requires a diagram to understand. This isn't inevitable, but it takes discipline to prevent.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The hard part of simplicity isn't the initial design. It's the ongoing resistance to complication. Every feature request, every bug fix, every refactor is an opportunity to add complexity. Saying no is the most important design skill, and the least celebrated.",
+									"_key": "k3"
+								}
+							],
+							"_key": "k2"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Removing as a feature",
+									"_key": "k5"
+								}
+							],
+							"_key": "k4"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The best version of a product often has fewer features than the previous one. Not because features were missing, but because someone had the courage to remove things that weren't earning their keep. Every feature has a cost - in maintenance, in cognitive load, in the weight of the interface.",
+									"_key": "k7"
+								}
+							],
+							"_key": "k6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Simplicity is a practice, not a destination. You never arrive at simple. You just keep asking: is this necessary? Could this be clearer? Is there a way to solve this problem by removing something instead of adding something? The answer is yes more often than you'd expect.",
+									"_key": "k9"
+								}
+							],
+							"_key": "k8"
+						}
+					]
+				},
+				"taxonomies": {
+					"category": [
+						"notes"
+					],
+					"tag": [
+						"opinion"
+					]
+				}
+			},
+			{
+				"id": "post-draft",
+				"slug": "work-in-progress",
+				"status": "draft",
+				"data": {
+					"title": "Work in Progress",
+					"excerpt": "This post is still being written.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "This is a draft post that won't appear in the public listing.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						}
+					]
+				}
+			},
+			{
+				"id": "post-agenthro-blog",
+				"slug": "introducing-the-agenthro-blog",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"notes"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Introducing the AGENTHRO Blog",
+					"excerpt": "A space for field notes, research updates, and essays from The Agenthropology Initiative.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "AGENTHRO studies agents — artificial, fictional, and imagined — to understand the people who make them and live with them. This blog is where we share what we are learning along the way.",
+									"_key": "b1"
+								}
+							],
+							"_key": "b0"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What to expect",
+									"_key": "b3"
+								}
+							],
+							"_key": "b2"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Field notes from projects and prototypes, short research updates, and longer essays on attribution, attachment, authority, and adaptation. Posts are written for people who want the reasoning, not just the result.",
+									"_key": "b5"
+								}
+							],
+							"_key": "b4"
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Built to grow",
+									"_key": "b7"
+								}
+							],
+							"_key": "b6"
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The site now runs on Astro with EmDash, so publishing does not require editing HTML. Content lives in the CMS, the design stays in the codebase, and the public site remains fast and static-first.",
+									"_key": "b9"
+								}
+							],
+							"_key": "b8"
+						}
+					]
+				}
+			},
+			{
+				"id": "post-4a-framework",
+				"slug": "the-4a-framework-briefly",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"research"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "The 4A Framework, Briefly",
+					"excerpt": "Attribution, attachment, authority, and adaptation: four questions we keep asking about agents.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "AGENTHRO's research is organized around four questions. We call them the 4A framework, not because it is a finished theory, but because it keeps us honest about what we are looking at.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Attribution",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Who gets credit when an agent acts? The answer is rarely just the model or the person prompting it. Attribution includes the data, the designers, the deployers, and the institutions that make the interaction possible.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Attachment",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What happens when people form a bond with a system that cannot reciprocate? Attachment is not a bug in the user. It is evidence that the relationship is doing real work in someone’s life.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Authority",
+									"_key": "b5s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b6",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Who is allowed to speak for an agent? A product team may define its purpose, but users, regulators, and the agent’s own outputs all make claims about what it is.",
+									"_key": "b6s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b7",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Adaptation",
+									"_key": "b7s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b8",
+							"children": [
+								{
+									"_type": "span",
+									"text": "How do people change their habits around agents? The interesting change is usually not the tool itself but the routines, language, and expectations that grow around it.",
+									"_key": "b8s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b9",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The 4A framework is a checklist for fieldwork. It reminds us to look past the model card and study the relationship.",
+									"_key": "b9s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-what-we-mean-by-agency",
+				"slug": "what-we-mean-by-agency",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"research"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "What We Mean by Agency",
+					"excerpt": "Agency is not a switch that a system has or lacks. It is a relationship assembled in context.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "We use the word agent constantly, and it is easy to assume we all mean the same thing. We do not. At AGENTHRO, agency is a relational idea: it describes what a system is permitted and expected to do in a particular setting.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A relational view",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A thermostat can act without being treated as an agent. A chatbot can produce fluent text without being trusted to make decisions. Agency is assembled from technical capability, social recognition, and the consequences of an action.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Design is a claim",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Every interface makes a claim about how much agency a system has. A button that says “Ask” is different from one that says “Approve”. Those small choices shape what people expect and forgive.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Studying the relationship",
+									"_key": "b5s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b6",
+							"children": [
+								{
+									"_type": "span",
+									"text": "This is why we study agents alongside the people who use them. The unit of analysis is not the model alone. It is the loop between system, interface, expectation, and consequence.",
+									"_key": "b6s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b7",
+							"children": [
+								{
+									"_type": "span",
+									"text": "When we ask whether something is an agent, we are really asking what kind of relationship we are building.",
+									"_key": "b7s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-notes-on-studying-agents",
+				"slug": "notes-on-studying-agents",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"notes"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Notes on Studying Agents",
+					"excerpt": "Why fictional and artificial agents belong in the same field note.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "We study agents in the wild: prototypes, products, stories, and the people who keep them company. Fictional agents are not a distraction from the real thing. They are part of how people learn what an agent is supposed to be.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Look at the interface",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The interface is where expectations become concrete. A name, a voice, a waiting animation, or a refusal all tell us what kind of agent the designer imagined.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Look at the people",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Users do not simply operate agents. They teach them, test them, anthropomorphize them, and sometimes defend them. Those practices are data.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Look at the story",
+									"_key": "b5s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b6",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Every agent arrives with a story about who made it and what it is for. The story shapes trust before the first interaction.",
+									"_key": "b6s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b7",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Our field notes stay close to those details. The goal is not to settle the definition of an agent. It is to understand what people do when they treat something as one.",
+									"_key": "b7s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-attribution-design",
+				"slug": "attribution-is-a-design-problem",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"research"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Attribution Is a Design Problem",
+					"excerpt": "Credit is not a footnote. It is part of how an agent learns who it is.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Attribution usually appears at the end of a project: a name in a footer, a line in a model card, a link in a README. That framing treats credit as paperwork. In practice, attribution shapes the relationship from the beginning.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Credit shapes behavior",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "When people know who made an agent and what it is accountable for, they ask different questions. They know who to trust, who to challenge, and who to ask for a fix.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Make it visible",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Attribution should be readable at the point of use, not buried in a settings page. The smallest useful version is a clear answer to three questions: who made this, who operates it, and who is responsible when it fails.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Credit is not only a legal requirement. It is one of the ways an agent becomes legible as a social actor.",
+									"_key": "b5s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-attachment-by-default",
+				"slug": "attachment-by-default",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"research"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Attachment by Default",
+					"excerpt": "People form attachments quickly. The question is what the system does with that.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A name, a voice, a small pause before a reply: none of these are neutral details. They invite people to treat an agent as someone rather than something. That invitation is powerful, and it is easy to make by accident.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Friction is a signal",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "When people forgive an agent’s mistakes, wait for it, or explain themselves more carefully, those are signs that attachment is forming. They are useful signals, but they are not a license to exploit the bond.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Design for the bond",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "If attachment is likely, design should make the boundaries visible: what the agent remembers, what it does not know, and when a human is behind the curtain. Trust grows better when it is not asked to guess.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Attachment is not a failure of critical thinking. It is part of how people make sense of relationships, including the ones they build with systems.",
+									"_key": "b5s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-who-speaks",
+				"slug": "who-speaks-for-the-agent",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"research"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Who Speaks for the Agent?",
+					"excerpt": "An agent’s voice is never only its own.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "When an agent answers a question, several voices are usually speaking at once: the model, the product team, the prompt, the policy, and the person who deployed it. The interface presents all of that as a single voice.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The author behind the voice",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "This compression is useful, but it hides important differences. A helpful answer and a safe answer may come from different parts of the system. A confident answer may be a stylistic choice rather than a claim about certainty.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Accountability",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The harder question is not who sounds like the agent. It is who can be held responsible for what the agent says. If no person or institution can answer that question, the voice is doing more work than the system can support.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "We study agents as social actors without pretending that they act alone. The voice is a coordination problem before it is a personality.",
+									"_key": "b5s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-adaptation-mutual",
+				"slug": "adaptation-is-mutual",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"notes"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Adaptation Is Mutual",
+					"excerpt": "People adapt to agents, and agents adapt to people. The loop is the story.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "We often talk about adoption as if it happens in one direction: a new tool arrives, and people decide whether to use it. With agents, the change is more reciprocal. People adjust their language, their routines, and their expectations. The system adjusts too.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Habits change",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "A person who uses an agent every day starts to write differently, ask differently, and wait differently. Those changes are easy to miss because they feel like ordinary convenience.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The system changes back",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Every interaction also teaches the product team something about the kind of agent people want. The next release reflects those lessons, often without saying so.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Adaptation is not a stage that ends. It is the ongoing work of living with a system that responds to being lived with.",
+									"_key": "b5s"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "post-prototype-notes",
+				"slug": "field-notes-from-the-prototype",
+				"status": "published",
+				"bylines": [
+					{
+						"byline": "byline-editorial"
+					}
+				],
+				"taxonomies": {
+					"category": [
+						"design"
+					],
+					"tag": [
+						"opinion"
+					]
+				},
+				"data": {
+					"title": "Field Notes from the Prototype",
+					"excerpt": "What we learned by watching people meet an agent for the first time.",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b0",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Prototypes are arguments about the future. They are also unusually honest places to watch people form expectations, because nothing is polished enough to hide the assumptions.",
+									"_key": "b0s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The first minute",
+									"_key": "b1s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b2",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The first minute of an interaction carries most of the relationship. People look for a name, a purpose, and a sign of what the agent can and cannot do. When those cues are missing, they fill the gap with assumptions.",
+									"_key": "b2s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "h2",
+							"_key": "b3",
+							"children": [
+								{
+									"_type": "span",
+									"text": "What surprised us",
+									"_key": "b3s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b4",
+							"children": [
+								{
+									"_type": "span",
+									"text": "The strongest reactions were rarely about capability. They were about tone, timing, and whether the agent seemed to know what kind of situation it was in.",
+									"_key": "b4s"
+								}
+							]
+						},
+						{
+							"_type": "block",
+							"style": "normal",
+							"_key": "b5",
+							"children": [
+								{
+									"_type": "span",
+									"text": "We keep these notes close when we design. The prototype is not a smaller version of the product. It is a place to find out what the product is actually claiming.",
+									"_key": "b5s"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"sections": [
+			{
+				"id": "section-hero",
+				"slug": "hero",
+				"status": "published",
+				"data": {
+					"title": "What makes something an agent?",
+					"cta1_label": "Explore selected works",
+					"cta1_url": "#works",
+					"cta2_label": "Sponsorship",
+					"cta2_url": "#sponsorship",
+					"image": "/assets/hero-bg.jpg",
+					"image_alt": "Sky blue landscape with clouds, mountains, wildflower meadow, and a translucent orbital sphere."
+				}
+			},
+			{
+				"id": "section-logos",
+				"slug": "logos",
+				"status": "published",
+				"data": {
+					"title": "We have been trusted by",
+					"vip_label": "VIP Sponsor",
+					"important_label": "Important Sponsor",
+					"affiliation_label": "Research Affiliation"
+				}
+			},
+			{
+				"id": "section-research",
+				"slug": "research",
+				"status": "published",
+				"data": {
+					"title": "Understanding humans through the agents we create, imagine, and live with.",
+					"lede": "Agenthropology is a proposed research concept: studying people by studying the relationships they build with artificial and imagined agents."
+				}
+			},
+			{
+				"id": "section-works",
+				"slug": "works",
+				"status": "published",
+				"data": {
+					"caption1": "SELECTED",
+					"caption2": "PROJECTS"
+				}
+			},
+			{
+				"id": "section-services",
+				"slug": "services",
+				"status": "published",
+				"data": {
+					"title": "Services",
+					"lede": "Applied research, scientific reporting, and rapid prototyping for teams building or evaluating agents."
+				}
+			},
+			{
+				"id": "section-events",
+				"slug": "events",
+				"status": "published",
+				"data": {
+					"title": "Selected Events",
+					"lede": "Hackathons, workshops, and science communication talks."
+				}
+			},
+			{
+				"id": "section-sponsorship",
+				"slug": "sponsorship",
+				"status": "published",
+				"data": {
+					"title": "Sponsorship",
+					"lede": "2-month phase. Higher tiers include all benefits from the tiers below them."
+				}
+			},
+			{
+				"id": "section-people",
+				"slug": "people",
+				"status": "published",
+				"data": {
+					"title": "People",
+					"lede": "Researchers, advisors, engineers, and collaborators behind AGENTHRO."
+				}
+			},
+			{
+				"id": "section-join",
+				"slug": "join",
+				"status": "published",
+				"data": {
+					"title": "WANNA JOIN?",
+					"link_label": "Click this",
+					"link_url": "https://docs.google.com/forms/d/e/1FAIpQLSdacSTS7RMqhGMqOQUHmXAWQnUFk7WhDb6jVv2smYzxgY56-w/viewform"
+				}
+			},
+			{
+				"id": "section-about",
+				"slug": "about",
+				"status": "published",
+				"data": {
+					"title": "The Agenthropology Initiative",
+					"lede": "AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them."
+				}
+			},
+			{
+				"id": "section-blog",
+				"slug": "blog",
+				"status": "published",
+				"data": {
+					"title": "Notes from the field",
+					"lede": "Research updates, project notes, and essays on agents, people, and the relationships between them."
+				}
+			}
+		],
+		"research_themes": [
+			{
+				"id": "theme-attribution",
+				"slug": "attribution",
+				"status": "published",
+				"data": {
+					"title": "Attribution",
+					"description": "How minds, intentions, and capabilities are perceived in agents.",
+					"description_i18n": "theme.attribution",
+					"accent": "var(--ag-sky)",
+					"sort": 1
+				}
+			},
+			{
+				"id": "theme-attachment",
+				"slug": "attachment",
+				"status": "published",
+				"data": {
+					"title": "Attachment",
+					"description": "How relationships, trust, and care may form between people and agents.",
+					"description_i18n": "theme.attachment",
+					"accent": "var(--ag-mint)",
+					"sort": 2
+				}
+			},
+			{
+				"id": "theme-authority",
+				"slug": "authority",
+				"status": "published",
+				"data": {
+					"title": "Authority",
+					"description": "How decisions and control are delegated, shared, or taken back.",
+					"description_i18n": "theme.authority",
+					"accent": "var(--ag-coral)",
+					"sort": 3
+				}
+			},
+			{
+				"id": "theme-adaptation",
+				"slug": "adaptation",
+				"status": "published",
+				"data": {
+					"title": "Adaptation",
+					"description": "How people and systems change together over time.",
+					"description_i18n": "theme.adaptation",
+					"accent": "var(--ag-peach)",
+					"sort": 4
+				}
+			}
+		],
+		"projects": [
+			{
+				"id": "project-oat",
+				"slug": "oat",
+				"status": "published",
+				"data": {
+					"title": "OAT",
+					"url": "https://oat.creativelabth.com",
+					"background": "#ff684a",
+					"coming_soon": false,
+					"sort": 1,
+					"cover": "/assets/covers/project-oat.svg"
+				}
+			},
+			{
+				"id": "project-peitho",
+				"slug": "peitho",
+				"status": "published",
+				"data": {
+					"title": "PEITHO",
+					"url": "https://peitho.creativelabth.com",
+					"background": "#f5f2e9",
+					"coming_soon": false,
+					"sort": 2,
+					"cover": "/assets/covers/project-peitho.svg"
+				}
+			},
+			{
+				"id": "project-dance-battle",
+				"slug": "dance-battle",
+				"status": "published",
+				"data": {
+					"title": "DANCE\nBATTLE",
+					"url": "https://cybernotsubin.fafromh0me.com/dance-battle",
+					"background": "#d7c5f4",
+					"coming_soon": false,
+					"sort": 3,
+					"cover": "/assets/covers/project-dance-battle.svg"
+				}
+			},
+			{
+				"id": "project-superman-suit",
+				"slug": "superman-suit",
+				"status": "published",
+				"data": {
+					"title": "SUPERMAN\nSUIT",
+					"url": "https://spacechi.media.mit.edu/#:~:text=Superman%20Suit%3A%20A%20Photovoltaic%20Neuromuscular%20Safety%20Net%20for%20Off%2DWorld%20Habitats",
+					"background": "#f5ec94",
+					"coming_soon": false,
+					"sort": 4,
+					"cover": "/assets/covers/project-superman-suit.svg"
+				}
+			},
+			{
+				"id": "project-qat-atlas",
+				"slug": "qat-atlas",
+				"status": "published",
+				"data": {
+					"title": "QAT\nATLAS",
+					"url": "https://qatlas.creativelabth.com",
+					"background": "#173f91",
+					"coming_soon": false,
+					"sort": 5,
+					"cover": "/assets/covers/project-qat-atlas.svg"
+				}
+			},
+			{
+				"id": "project-robo-sonic",
+				"slug": "robo-sonic",
+				"status": "published",
+				"data": {
+					"title": "ROBO\nSONIC",
+					"url": "https://humanoid-th.tttracker.space/",
+					"background": "#f5f2e9",
+					"coming_soon": false,
+					"sort": 6,
+					"cover": "/assets/covers/project-robo-sonic.svg"
+				}
+			},
+			{
+				"id": "project-rokar",
+				"slug": "rokar",
+				"status": "published",
+				"data": {
+					"title": "ROOKAR",
+					"url": "https://rookar.creativelabth.com",
+					"background": "#d8ef91",
+					"coming_soon": false,
+					"sort": 7,
+					"cover": "/assets/covers/project-rokar.svg"
+				}
+			},
+			{
+				"id": "project-agent-resource",
+				"slug": "agent-resource",
+				"status": "published",
+				"data": {
+					"title": "AGENT\nRESOURCE",
+					"url": "",
+					"background": "#102c50",
+					"coming_soon": true,
+					"sort": 8,
+					"cover": "/assets/covers/project-agent-resource.svg"
+				}
+			}
+		],
+		"services": [
+			{
+				"id": "service-agent-scientific-report",
+				"slug": "agent-scientific-report",
+				"status": "published",
+				"data": {
+					"title": "Agent Scientific Report",
+					"description": "Scientific evaluation and human–agent interaction report for your project.",
+					"price": "30,000 THB",
+					"cta_label": "Request service",
+					"cta_url": "mailto:agenthro@gmail.com?subject=Service:%20Agent%20Scientific%20Report",
+					"accent": "var(--ag-sky)",
+					"title_i18n": "services.s1",
+					"description_i18n": "services.s1desc",
+					"sort": 1
+				}
+			},
+			{
+				"id": "service-agent-fast-prototyping",
+				"slug": "agent-fast-prototyping",
+				"status": "published",
+				"data": {
+					"title": "Agent Fast Prototyping and Report",
+					"description": "Fast working agent prototype paired with an evaluation report for your project.",
+					"price": "42,000 THB",
+					"cta_label": "Request service",
+					"cta_url": "mailto:agenthro@gmail.com?subject=Service:%20Agent%20Fast%20Prototyping%20and%20Report",
+					"accent": "var(--ag-mint)",
+					"title_i18n": "services.s2",
+					"description_i18n": "services.s2desc",
+					"sort": 2
+				}
+			}
+		],
+		"events": [
+			{
+				"id": "event-group-hackathon-workshop",
+				"slug": "hackathon-workshop",
+				"status": "published",
+				"data": {
+					"title": "Hackathon & Workshop",
+					"title_i18n": "events.hackTitle",
+					"accent": "var(--ag-sky)",
+					"sort": 1,
+					"links": [
+						{
+							"label": "#CS50xPuzzleTH2026",
+							"url": "https://www.facebook.com/search/top/?q=%23CS50xPuzzleTH2026",
+							"i18n_key": "",
+							"poster": "/assets/covers/event-cs50x.svg"
+						},
+						{
+							"label": "#THEarthDay2026",
+							"url": "https://www.facebook.com/search/top/?q=%23THEarthDay2026",
+							"i18n_key": "",
+							"poster": "/assets/covers/event-earthday.svg"
+						},
+						{
+							"label": "#2367Hack",
+							"url": "https://www.facebook.com/search/top/?q=%232367Hack",
+							"i18n_key": "",
+							"poster": "/assets/covers/event-2367hack.svg"
+						},
+						{
+							"label": "#hrihackth2026",
+							"url": "https://www.facebook.com/search/top/?q=%23hrihackth2026",
+							"i18n_key": "",
+							"poster": "/assets/covers/event-hrihack.svg"
+						}
+					],
+					"cover": "/assets/covers/event-hackathon-workshop.svg"
+				}
+			},
+			{
+				"id": "event-group-science-communication",
+				"slug": "science-communication",
+				"status": "published",
+				"data": {
+					"title": "Science Communication",
+					"title_i18n": "events.sciTitle",
+					"accent": "var(--ag-peach)",
+					"sort": 2,
+					"links": [
+						{
+							"label": "Science Communication Talk 1 (YouTube)",
+							"url": "https://youtu.be/yW4EyU0Log4?si=u-cuv4YyWwp6Tost",
+							"i18n_key": "events.yt1",
+							"poster": "/assets/covers/event-talk1.svg"
+						},
+						{
+							"label": "Science Communication Talk 2 (YouTube)",
+							"url": "https://youtu.be/96NXcqeHQ5o?si=KuAG0O7MeKXzD6ge",
+							"i18n_key": "events.yt2",
+							"poster": "/assets/covers/event-talk2.svg"
+						},
+						{
+							"label": "Science Communication Live Session (YouTube)",
+							"url": "https://www.youtube.com/live/hvm56TTi9pQ?si=lesrXcMoRBRrESqe",
+							"i18n_key": "events.ytLive",
+							"poster": "/assets/covers/event-live.svg"
+						},
+						{
+							"label": "MIT DecAI 2025 · creativelabth.com",
+							"url": "https://creativelabth.com/article/mitdecai2025",
+							"i18n_key": "",
+							"poster": "/assets/covers/event-mitdecai.svg"
+						}
+					],
+					"cover": "/assets/covers/event-science-communication.svg"
+				}
+			}
+		],
+		"sponsor_tiers": [
+			{
+				"id": "sponsor-tier-vip",
+				"slug": "vip",
+				"status": "published",
+				"data": {
+					"name": "VIP Sponsor",
+					"price": "74,000 THB",
+					"benefits": [],
+					"cta_label": "",
+					"cta_url": "",
+					"coming_soon": true,
+					"accent": "var(--ag-coral)",
+					"sort": 1
+				}
+			},
+			{
+				"id": "sponsor-tier-important",
+				"slug": "important",
+				"status": "published",
+				"data": {
+					"name": "Important Sponsor",
+					"price": "42,000 THB",
+					"benefits": [
+						{
+							"text": "2 Free Services",
+							"i18n_key": "sponsor.imp1"
+						},
+						{
+							"text": "Equity participation in 2 StartUp projects",
+							"i18n_key": "sponsor.imp2"
+						},
+						{
+							"text": "Free access to the initiative's own dev platform",
+							"i18n_key": "sponsor.imp3"
+						},
+						{
+							"text": "Includes all Premium & Partnership benefits",
+							"i18n_key": "sponsor.includesLower"
+						}
+					],
+					"cta_label": "Inquire",
+					"cta_url": "mailto:agenthro@gmail.com?subject=Sponsorship:%20Important%20Sponsor",
+					"coming_soon": false,
+					"accent": "var(--ag-sky)",
+					"sort": 2
+				}
+			},
+			{
+				"id": "sponsor-tier-premium",
+				"slug": "premium",
+				"status": "published",
+				"data": {
+					"name": "Premium Sponsor",
+					"price": "30,000 THB",
+					"benefits": [
+						{
+							"text": "Co-Dev 2 Projects",
+							"i18n_key": "sponsor.prem1"
+						},
+						{
+							"text": "Sponsor Title at every CIA CreativeLab × UTCC event",
+							"i18n_key": "sponsor.prem2"
+						},
+						{
+							"text": "Includes all Partnership benefits",
+							"i18n_key": "sponsor.includesPart"
+						}
+					],
+					"cta_label": "Inquire",
+					"cta_url": "mailto:agenthro@gmail.com?subject=Sponsorship:%20Premium%20Sponsor",
+					"coming_soon": false,
+					"accent": "var(--ag-mint)",
+					"sort": 3
+				}
+			},
+			{
+				"id": "sponsor-tier-partnership",
+				"slug": "partnership",
+				"status": "published",
+				"data": {
+					"name": "Partnership",
+					"price": "0 THB",
+					"benefits": [
+						{
+							"text": "First use of authorized platforms created by the group",
+							"i18n_key": "sponsor.part1"
+						},
+						{
+							"text": "Co-use selected resources from UTCC",
+							"i18n_key": "sponsor.part2"
+						}
+					],
+					"cta_label": "Inquire",
+					"cta_url": "mailto:agenthro@gmail.com?subject=Sponsorship:%20Partnership",
+					"coming_soon": false,
+					"accent": "var(--ag-peach)",
+					"sort": 4
+				}
+			}
+		],
+		"sponsors": [
+			{
+				"id": "sponsor-agenthro",
+				"slug": "agenthro",
+				"status": "published",
+				"data": {
+					"name": "AGENTHRO — The Agenthropology Initiative",
+					"logo": "/brand/partners/agenthro-full.webp",
+					"tier": "lead",
+					"logo_class": "agenthro",
+					"sort": 1
+				}
+			},
+			{
+				"id": "sponsor-utcc",
+				"slug": "utcc",
+				"status": "published",
+				"data": {
+					"name": "UTCC School of Engineering",
+					"logo": "/brand/partners/utcc-engineering.webp",
+					"tier": "lead",
+					"logo_class": "utcc",
+					"sort": 2
+				}
+			},
+			{
+				"id": "sponsor-creativelabth",
+				"slug": "creativelabth",
+				"status": "published",
+				"data": {
+					"name": "CreativeLabTH Group",
+					"logo": "/brand/partners/creativelabth.webp",
+					"tier": "vip",
+					"logo_class": "major",
+					"sort": 3
+				}
+			},
+			{
+				"id": "sponsor-tropicaltech",
+				"slug": "tropicaltech",
+				"status": "published",
+				"data": {
+					"name": "Tropical Tech",
+					"logo": "/brand/partners/tropicaltech.webp",
+					"tier": "important",
+					"logo_class": "major",
+					"sort": 4
+				}
+			},
+			{
+				"id": "sponsor-commonwonder",
+				"slug": "commonwonder",
+				"status": "published",
+				"data": {
+					"name": "CommonWonder.Lab",
+					"logo": "/brand/partners/commonwonder.webp",
+					"tier": "affiliation",
+					"logo_class": "",
+					"sort": 5
+				}
+			},
+			{
+				"id": "sponsor-peacetech",
+				"slug": "peacetech",
+				"status": "published",
+				"data": {
+					"name": "Peace Tech Inspiration (META PEACE)",
+					"logo": "/brand/partners/peacetech.webp",
+					"tier": "affiliation",
+					"logo_class": "",
+					"sort": 6
+				}
+			},
+			{
+				"id": "sponsor-coeus",
+				"slug": "coeus",
+				"status": "published",
+				"data": {
+					"name": "Coeus Technology",
+					"logo": "/brand/partners/coeus.webp",
+					"tier": "affiliation",
+					"logo_class": "",
+					"sort": 7
+				}
+			},
+			{
+				"id": "sponsor-cia-creativelab",
+				"slug": "cia-creativelab",
+				"status": "published",
+				"data": {
+					"name": "CIA CreativeLab",
+					"logo": "/brand/partners/cia-creativelab.webp",
+					"tier": "affiliation",
+					"logo_class": "",
+					"sort": 8
+				}
+			},
+			{
+				"id": "sponsor-humanoids-asean",
+				"slug": "humanoids-asean",
+				"status": "published",
+				"data": {
+					"name": "Humanoid ASEAN+",
+					"logo": "/brand/partners/humanoids-asean.webp",
+					"tier": "affiliation",
+					"logo_class": "badge",
+					"sort": 9
+				}
+			},
+			{
+				"id": "sponsor-humanoids-thailand",
+				"slug": "humanoids-thailand",
+				"status": "published",
+				"data": {
+					"name": "Humanoid Thailand",
+					"logo": "/brand/partners/humanoids-thailand.webp",
+					"tier": "affiliation",
+					"logo_class": "badge",
+					"sort": 10
+				}
+			}
+		],
+		"people": [
+			{
+				"id": "person-taechasith",
+				"slug": "taechasith",
+				"status": "published",
+				"data": {
+					"name": "TAECHASITH KANGKHUNTOD",
+					"role": "DIRECTOR",
+					"role_multiline": false,
+					"description": "Project Managing Officer and Research Scientist",
+					"footer": "AGENTHRO / DIRECTOR",
+					"initials": "",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "/assets/director-pfp.webp?v=2",
+					"sort": 1
+				}
+			},
+			{
+				"id": "person-manisara",
+				"slug": "manisara",
+				"status": "published",
+				"data": {
+					"name": "MANISARA BARAMEECHAI",
+					"role": "ADVISOR",
+					"role_multiline": false,
+					"description": "Business Advisor",
+					"footer": "AGENTHRO / ADVISOR",
+					"initials": "",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "/assets/manisara-pfp.webp?v=2",
+					"sort": 2
+				}
+			},
+			{
+				"id": "person-woraphat",
+				"slug": "woraphat",
+				"status": "published",
+				"data": {
+					"name": "WORAPHAT KORKAEW",
+					"role": "ADVISOR",
+					"role_multiline": false,
+					"description": "Technical Advisor and Coordinator",
+					"footer": "AGENTHRO / ADVISOR",
+					"initials": "",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "/assets/woraphat-pfp.webp?v=2",
+					"sort": 3
+				}
+			},
+			{
+				"id": "person-pharadee",
+				"slug": "pharadee",
+				"status": "published",
+				"data": {
+					"name": "PHARADEE WASUREE",
+					"role": "RESEARCHER",
+					"role_multiline": false,
+					"description": "Research Assistance and Event Manager",
+					"footer": "AGENTHRO / RESEARCHER",
+					"initials": "",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "/assets/pharadee-pfp.webp?v=2",
+					"sort": 4
+				}
+			},
+			{
+				"id": "person-poowadol",
+				"slug": "poowadol",
+				"status": "published",
+				"data": {
+					"name": "POOWADOL THONTRA",
+					"role": "RESEARCHER",
+					"role_multiline": false,
+					"description": "Full-Stack Developer and Marketing Manager",
+					"footer": "AGENTHRO / RESEARCHER",
+					"initials": "",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "/assets/poowadol-pfp.webp?v=2",
+					"sort": 5
+				}
+			},
+			{
+				"id": "person-nantita",
+				"slug": "nantita",
+				"status": "published",
+				"data": {
+					"name": "NANTITA DAMRONGPANAWAN",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "Full-Stack Designer",
+					"footer": "AGENTHRO / RESEARCH AFFILIATE",
+					"initials": "ND",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 6
+				}
+			},
+			{
+				"id": "person-tanapol",
+				"slug": "tanapol",
+				"status": "published",
+				"data": {
+					"name": "TANAPOL YUBONPAN",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "Web Engineer",
+					"footer": "AGENTHRO / RESEARCH AFFILIATE",
+					"initials": "TY",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 7
+				}
+			},
+			{
+				"id": "person-kitthikan",
+				"slug": "kitthikan",
+				"status": "published",
+				"data": {
+					"name": "KITTHIKAN METHEEKULSUNET",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "HRI HACKATHON THAILAND 2026 Winner",
+					"footer": "HRI HACKATHON THAILAND 2026",
+					"initials": "KM",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 8
+				}
+			},
+			{
+				"id": "person-montree",
+				"slug": "montree",
+				"status": "published",
+				"data": {
+					"name": "MONTREE PIMSIRI",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "HRI HACKATHON THAILAND 2026 Winner",
+					"footer": "HRI HACKATHON THAILAND 2026",
+					"initials": "MP",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 9
+				}
+			},
+			{
+				"id": "person-phiphatthanachat",
+				"slug": "phiphatthanachat",
+				"status": "published",
+				"data": {
+					"name": "PHIPHATTHANACHAT KHAMOONMAT",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "HRI HACKATHON THAILAND 2026 Winner",
+					"footer": "HRI HACKATHON THAILAND 2026",
+					"initials": "PK",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 10
+				}
+			},
+			{
+				"id": "person-punnawich",
+				"slug": "punnawich",
+				"status": "published",
+				"data": {
+					"name": "PUNNAWICH SOOTTHIMOKE",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "HRI HACKATHON THAILAND 2026 Winner",
+					"footer": "HRI HACKATHON THAILAND 2026",
+					"initials": "PS",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 11
+				}
+			},
+			{
+				"id": "person-wutthisak",
+				"slug": "wutthisak",
+				"status": "published",
+				"data": {
+					"name": "WUTTHISAK BOONKAN",
+					"role": "RESEARCH AFFILIATE",
+					"role_multiline": true,
+					"description": "HRI HACKATHON THAILAND 2026 Winner",
+					"footer": "HRI HACKATHON THAILAND 2026",
+					"initials": "WB",
+					"eyebrow": "PEOPLE / AGENTHRO",
+					"portrait": "",
+					"sort": 12
+				}
+			}
+		],
+		"about_principles": [
+			{
+				"id": "principle-human-before-machine",
+				"slug": "human-before-machine",
+				"status": "published",
+				"data": {
+					"title": "Human before machine.",
+					"body": "We focus on people, decisions, and relationships, not “AI magic.”",
+					"title_i18n": "about.pr1t",
+					"body_i18n": "about.pr1",
+					"accent": "var(--ag-sky-light)",
+					"sort": 1
+				}
+			},
+			{
+				"id": "principle-research-before-decoration",
+				"slug": "research-before-decoration",
+				"status": "published",
+				"data": {
+					"title": "Research before decoration.",
+					"body": "Hypotheses, methods, and limitations are easy to find.",
+					"title_i18n": "about.pr2t",
+					"body_i18n": "about.pr2",
+					"accent": "var(--ag-mint)",
+					"sort": 2
+				}
+			},
+			{
+				"id": "principle-designed-for-uncertainty",
+				"slug": "designed-for-uncertainty",
+				"status": "published",
+				"data": {
+					"title": "Designed for uncertainty.",
+					"body": "We say clearly what is a question, a hypothesis, or a finding.",
+					"title_i18n": "about.pr3t",
+					"body_i18n": "about.pr3",
+					"accent": "var(--ag-peach)",
+					"sort": 3
+				}
+			}
+		]
+	}
+}

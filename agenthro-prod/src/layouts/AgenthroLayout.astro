@@ -1,0 +1,239 @@
+---
+import { getMenu, getSiteSettings } from "emdash";
+import { EmDashBodyEnd, EmDashBodyStart, EmDashHead } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import "../styles/agenthro/tokens.css";
+import "../styles/agenthro/main.css";
+
+interface Props {
+	title: string;
+	description?: string | null;
+	isHome?: boolean;
+	content?: { collection: string; id: string; slug?: string | null };
+	type?: "website" | "article";
+	image?: string | null;
+	canonical?: string | null;
+	publishedTime?: string | null;
+	modifiedTime?: string | null;
+}
+
+const {
+	title,
+	description = "AGENTHRO, The Agenthropology Initiative. We invent others to understand ourselves.",
+	isHome = false,
+	content,
+	type = "website",
+	image,
+	canonical,
+	publishedTime,
+	modifiedTime,
+} = Astro.props;
+
+const [menu, settings] = await Promise.all([getMenu("primary"), getSiteSettings()]);
+const siteTitle = settings.title || "AGENTHRO";
+const siteTagline = settings.tagline || "We invent others to understand ourselves.";
+
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: content ? "content" : "custom",
+	pageType: type,
+	title,
+	pageTitle: title,
+	description,
+	canonical,
+	image,
+	content,
+	seo: { ogImage: image },
+	articleMeta: { publishedTime, modifiedTime },
+	siteName: siteTitle,
+});
+
+const navI18n: Record<string, string> = {
+	"/#research": "nav.research",
+	"/#works": "nav.works",
+	"/#services": "nav.services",
+	"/#events": "nav.events",
+	"/#sponsorship": "nav.sponsorship",
+	"/#people": "nav.people",
+	"/#about": "nav.about",
+	"/blog": "nav.blog",
+};
+
+const fallbackItems = [
+	{ label: "Research", url: "/#research" },
+	{ label: "Works", url: "/#works" },
+	{ label: "Services", url: "/#services" },
+	{ label: "Events", url: "/#events" },
+	{ label: "Sponsor", url: "/#sponsorship" },
+	{ label: "People", url: "/#people" },
+	{ label: "About", url: "/#about" },
+	{ label: "Blog", url: "/blog" },
+];
+
+const navItems = (menu?.items?.length ? menu.items : fallbackItems)
+	.filter((item) => item.url)
+	.map((item) => {
+		const href = isHome && item.url.startsWith("/#") ? item.url.slice(1) : item.url;
+		return {
+			label: item.label,
+			href,
+			key: navI18n[item.url.replace(/\/$/, "")] ?? navI18n[href.replace(/\/$/, "")],
+			target: "target" in item ? item.target : undefined,
+		};
+	});
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description ?? undefined} />
+		<meta name="theme-color" content="#3182F6" />
+		<link rel="icon" type="image/webp" href="/brand/agenthro-symbol.webp" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Roboto+Mono:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<EmDashHead page={pageCtx} />
+		<script is:inline>
+			(function () {
+				try {
+					var t = localStorage.getItem('ag-theme');
+					if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+					document.documentElement.setAttribute('data-theme', t);
+					var l = localStorage.getItem('ag-lang');
+					if (l) document.documentElement.setAttribute('lang', l);
+				} catch (e) {}
+			})();
+		</script>
+	</head>
+	<body>
+		<EmDashBodyStart page={pageCtx} />
+		<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+		<header class="site-header" id="top">
+			<div class="container header-inner">
+				<a class="brand" href="/" aria-label="AGENTHRO home">
+					<img
+						class="brand-logo brand-logo--wordmark"
+						src="/brand/partners/agenthro-full.webp"
+						width="874"
+						height="151"
+						alt="AGENTHRO — The Agenthropology Initiative"
+					/>
+				</a>
+
+				<nav class="primary-nav" id="primary-nav" aria-label="Primary">
+					<ul>
+						{navItems.map((item) => (
+							<li>
+								<a href={item.href} data-i18n={item.key}>{item.label}</a>
+							</li>
+						))}
+						<li class="nav-lang-item">
+							<button class="nav-lang-btn" id="mobile-lang-toggle" type="button">
+								ภาษาไทย (TH)
+							</button>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="header-tools">
+					<button
+						class="tool-btn"
+						id="lang-toggle"
+						type="button"
+						aria-label="Switch language to Thai"
+					>
+						<span class="mono" id="lang-label">TH</span>
+					</button>
+					<button
+						class="tool-btn"
+						id="theme-toggle"
+						type="button"
+						aria-label="Switch to dark mode"
+						aria-pressed="false"
+					>
+						<svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linejoin="round"
+							/>
+						</svg>
+						<svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+							<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+							<path
+								d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+							/>
+						</svg>
+					</button>
+					<button
+						class="tool-btn menu-btn"
+						id="menu-toggle"
+						type="button"
+						aria-controls="primary-nav"
+						aria-expanded="false"
+						aria-label="Open menu"
+					>
+						<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								d="M4 7h16M4 12h16M4 17h16"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+							/>
+						</svg>
+						<span class="menu-label" data-i18n="nav.menu">Menu</span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main id="main">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<div class="footer-brand">
+					<img
+						class="footer-logo-full"
+						src="/brand/partners/agenthro-full.webp"
+						alt="AGENTHRO — The Agenthropology Initiative"
+						loading="lazy"
+					/>
+				</div>
+				<div class="footer-statement">
+					<p class="footer-tagline">{siteTagline}</p>
+					<p class="meta">Agents × Anthropology → Agency</p>
+				</div>
+				<nav class="footer-nav" aria-label="Footer">
+					<ul>
+						{navItems.map((item) => (
+							<li>
+								<a href={item.href} data-i18n={item.key}>{item.label}</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+			</div>
+			<div class="container footer-base">
+				<p class="meta">© 2026 AGENTHRO · The Agenthropology Initiative</p>
+				<p class="meta"><a class="footer-email" href="mailto:agenthro@gmail.com">agenthro@gmail.com</a></p>
+			</div>
+		</footer>
+
+		<EmDashBodyEnd page={pageCtx} />
+		<script is:inline src="/scripts/main.js?v=4" defer></script>
+	</body>
+</html>

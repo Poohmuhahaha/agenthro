@@ -1,0 +1,170 @@
+---
+import { getEmDashCollection, getTermsForEntries } from "emdash";
+import { Image } from "emdash/ui";
+import AgenthroLayout from "../../layouts/AgenthroLayout.astro";
+import { blogAccent } from "../../utils/blog-accent";
+import { formatReadingTime, getReadingTime } from "../../utils/reading-time";
+import "../../styles/agenthro-blog.css";
+
+const POSTS_PER_PAGE = 9;
+const requestedPage = Number.parseInt(Astro.url.searchParams.get("page") ?? "1", 10);
+const currentPage = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+
+const [
+	{ entries: posts, cacheHint, hasMore },
+	{ entries: sections, cacheHint: sectionsHint },
+] = await Promise.all([
+	getEmDashCollection("posts", {
+		status: "published",
+		orderBy: { published_at: "desc" },
+		limit: POSTS_PER_PAGE,
+		offset: (currentPage - 1) * POSTS_PER_PAGE,
+	}),
+	getEmDashCollection("sections", { limit: 100 }),
+]);
+
+if (currentPage > 1 && posts.length === 0) {
+	return Astro.redirect("/blog");
+}
+
+if (Astro.cache?.enabled) {
+	Astro.cache.set(cacheHint);
+	Astro.cache.set(sectionsHint);
+}
+
+const blogSection = sections.find((entry) => entry.id === "blog")?.data;
+
+const categoriesByEntry = await getTermsForEntries(
+	"posts",
+	posts.map((post) => post.data.id),
+	"category",
+);
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+	day: "numeric",
+	month: "short",
+	year: "numeric",
+});
+
+const formatDate = (value: unknown) => {
+	if (!value) return null;
+	const date = value instanceof Date ? value : new Date(String(value));
+	if (Number.isNaN(date.getTime())) return null;
+	return dateFormatter.format(date);
+};
+
+const entries = posts.map((post, index) => {
+	const term = categoriesByEntry.get(post.data.id)?.[0];
+	return {
+		post,
+		index,
+		number: String((currentPage - 1) * POSTS_PER_PAGE + index + 1).padStart(2, "0"),
+		accent: blogAccent(term?.slug ?? post.id),
+		published: formatDate(post.data.publishedAt),
+		readingTime: formatReadingTime(getReadingTime(post.data.content)),
+	};
+});
+
+---
+
+<AgenthroLayout
+	title="Blog — AGENTHRO"
+	description="Field notes, research updates, and essays from the AGENTHRO team."
+	isHome={false}
+>
+	<section class="section blog-page" aria-labelledby="blog-title">
+		<div class="container">
+			<header class="blog-hero">
+				<h1 id="blog-title">{blogSection?.title ?? "Notes from the field"}</h1>
+				<p class="blog-hero__lede">
+					{blogSection?.lede ??
+						"Research updates, project notes, and essays on agents, people, and the relationships between them."}
+				</p>
+			</header>
+
+			{
+				entries.length === 0 ? (
+					<div class="blog-empty">
+						<h2>No posts yet</h2>
+						<p>New writing will appear here once it is published.</p>
+						<a class="ag-button ag-button--ink" href="/_emdash/admin/content/posts/new">
+							Create a post
+						</a>
+					</div>
+				) : (
+					<ul class="blog-grid">
+						{entries.map((entry) => (
+							<li>
+								<article class="blog-card" style={`--accent: ${entry.accent}`}>
+									<a
+										class="blog-card__media blog-media"
+										href={`/blog/${entry.post.id}`}
+										tabindex="-1"
+										aria-hidden="true"
+									>
+										{entry.post.data.featured_image ? (
+											<Image
+												image={entry.post.data.featured_image}
+												sizes="(min-width: 1080px) 380px, (min-width: 700px) 45vw, 100vw"
+											/>
+										) : (
+											<div class="blog-poster" aria-hidden="true">
+												<span class="blog-poster__index">{entry.number}</span>
+											</div>
+										)}
+									</a>
+									<div class="blog-card__body">
+										<h2 class="blog-card__title">
+											<a href={`/blog/${entry.post.id}`}>
+												{entry.post.data.title || "Untitled"}
+											</a>
+										</h2>
+										{entry.post.data.excerpt && (
+											<p class="blog-card__excerpt">{entry.post.data.excerpt}</p>
+										)}
+										<p class="blog-meta">
+											{entry.published && (
+												<time datetime={entry.post.data.publishedAt?.toISOString()}>
+													{entry.published}
+												</time>
+											)}
+											<span>{entry.readingTime}</span>
+										</p>
+									</div>
+								</article>
+							</li>
+						))}
+					</ul>
+				)
+			}
+
+			{entries.length > 0 && (
+				<nav class="blog-pagination" aria-label="Blog pagination">
+					{currentPage > 1 ? (
+						<a
+							class="blog-pagination__link"
+							href={currentPage === 2 ? "/blog" : `/blog?page=${currentPage - 1}`}
+							rel="prev"
+						>
+							← Previous
+						</a>
+					) : (
+						<span class="blog-pagination__link" aria-disabled="true">
+							← Previous
+						</span>
+					)}
+					<span class="blog-pagination__status">Page {currentPage}</span>
+					{hasMore ? (
+						<a class="blog-pagination__link" href={`/blog?page=${currentPage + 1}`} rel="next">
+							Next →
+						</a>
+					) : (
+						<span class="blog-pagination__link" aria-disabled="true">
+							Next →
+						</span>
+					)}
+				</nav>
+			)}
+		</div>
+	</section>
+</AgenthroLayout>

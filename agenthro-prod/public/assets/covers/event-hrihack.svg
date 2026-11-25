@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Abstract event poster">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#173F91"/><stop offset=".6" stop-color="#7BB8F5"/><stop offset="1" stop-color="#173F91"/>
+  </linearGradient>
+  <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+    <path d="M44 0H0V44" fill="none" stroke="#F7F9FF" stroke-opacity=".10" stroke-width="1"/>
+  </pattern>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<rect width="800" height="1000" fill="url(#grid)"/>
+<g fill="none" stroke="#F7F9FF" stroke-opacity=".5">
+   <circle cx="240" cy="260" r="90"/><circle cx="560" cy="620" r="150"/><circle cx="660" cy="260" r="60"/>
+ </g><g stroke="#F7F9FF" stroke-opacity=".45" stroke-width="2"><path d="M240 260 560 620 660 260M240 260 660 260"/></g><g fill="#F7F9FF"><circle cx="240" cy="260" r="9"/><circle cx="560" cy="620" r="12"/><circle cx="660" cy="260" r="7"/></g>
+<g fill="#F7F9FF" fill-opacity=".9">
+  <rect x="72" y="76" width="58" height="5" rx="2.5"/><rect x="72" y="94" width="32" height="5" rx="2.5"/>
+</g>
+</svg>

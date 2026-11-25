@@ -1,0 +1,562 @@
+---
+import { getEmDashCollection } from "emdash";
+import AgenthroLayout from "../layouts/AgenthroLayout.astro";
+
+const [
+	sectionsResult,
+	themesResult,
+	projectsResult,
+	servicesResult,
+	eventsResult,
+	tiersResult,
+	sponsorsResult,
+	peopleResult,
+	principlesResult,
+] = await Promise.all([
+	getEmDashCollection("sections", { limit: 100 }),
+	getEmDashCollection("research_themes", { limit: 100 }),
+	getEmDashCollection("projects", { limit: 100 }),
+	getEmDashCollection("services", { limit: 100 }),
+	getEmDashCollection("events", { limit: 100 }),
+	getEmDashCollection("sponsor_tiers", { limit: 100 }),
+	getEmDashCollection("sponsors", { limit: 100 }),
+	getEmDashCollection("people", { limit: 100 }),
+	getEmDashCollection("about_principles", { limit: 100 }),
+]);
+
+for (const result of [
+	sectionsResult,
+	themesResult,
+	projectsResult,
+	servicesResult,
+	eventsResult,
+	tiersResult,
+	sponsorsResult,
+	peopleResult,
+	principlesResult,
+]) {
+	if (Astro.cache?.enabled) Astro.cache.set(result.cacheHint);
+}
+
+const bySort = <T extends { data: { sort?: number } }>(a: T, b: T) =>
+	(a.data.sort ?? 0) - (b.data.sort ?? 0);
+
+const sectionEntries = sectionsResult.entries;
+const section = (key: string) =>
+	sectionEntries.find((entry) => entry.id === key)?.data;
+
+const hero = section("hero");
+const logos = section("logos");
+const research = section("research");
+const works = section("works");
+const servicesSection = section("services");
+const eventsSection = section("events");
+const sponsorship = section("sponsorship");
+const peopleSection = section("people");
+const join = section("join");
+const about = section("about");
+
+const themes = [...themesResult.entries].sort(bySort);
+const projects = [...projectsResult.entries].sort(bySort);
+const services = [...servicesResult.entries].sort(bySort);
+const eventGroups = [...eventsResult.entries].sort(bySort);
+const sponsorTiers = [...tiersResult.entries].sort(bySort);
+const sponsorEntries = [...sponsorsResult.entries].sort(bySort);
+const people = [...peopleResult.entries].sort(bySort);
+const principles = [...principlesResult.entries].sort(bySort);
+
+function imageUrl(
+	image: string | { src?: string; id?: string; meta?: Record<string, unknown> } | null | undefined,
+) {
+	if (!image) return null;
+	if (typeof image === "string") return image;
+	if (image.src) return image.src;
+	const metaKey = image.meta?.storageKey;
+	const storageKey = typeof metaKey === "string" ? metaKey : image.id;
+	return storageKey ? `/_emdash/api/media/file/${storageKey}` : null;
+}
+
+function initialsFor(name: string) {
+	return name
+		.split(/\s+/)
+		.filter(Boolean)
+		.map((part) => part[0])
+		.join("")
+		.slice(0, 2)
+		.toUpperCase();
+}
+
+const projectData = projects.map((project) => ({
+	title: project.data.title,
+	url: project.data.url ?? "",
+	background: project.data.background ?? "",
+	cover: imageUrl(project.data.cover),
+	coming_soon: project.data.coming_soon ?? false,
+}));
+
+const rotations = [-1.5, 4, -4, 6, -6, 8, -8, 5, -5, 9, -9, 2.5];
+const offsetsX = [0, 2, -2.3, 2.2, -2.8, 3, -3, 1.8, -1.7, 0.8, -0.9, 2];
+const offsetsY = [-4, 3, 4.6, -1.2, 0.9, 2.6, 4.9, 7.2, 8.2, 7.1, 9.5, 11.4];
+
+const leadSponsors = sponsorEntries.filter((entry) => entry.data.tier === "lead");
+const heroPartners = leadSponsors.filter((entry) => entry.data.logo_class !== "agenthro");
+const vipSponsors = sponsorEntries.filter((entry) => entry.data.tier === "vip");
+const importantSponsors = sponsorEntries.filter((entry) => entry.data.tier === "important");
+const affiliationSponsors = sponsorEntries.filter((entry) => entry.data.tier === "affiliation");
+
+const deckHeight = `calc(100dvh + ${Math.max(0, people.length - 1)} * 72dvh)`;
+---
+
+<AgenthroLayout
+	title="AGENTHRO · The Agenthropology Initiative"
+	description="AGENTHRO, The Agenthropology Initiative. We invent others to understand ourselves. Understanding humans through the agents we create, imagine, and live with."
+	isHome={true}
+>
+	<section class="hero-cover" aria-labelledby="hero-title">
+		<iframe
+			class="hero-cover-art hero-cover-scene"
+			src="/hero/index.html?embed=1"
+			title="Glass bloom animated cover"
+			aria-hidden="true"
+			tabindex="-1"
+			loading="eager"
+			fetchpriority="high"
+		></iframe>
+		<div class="container hero-cover-inner">
+			<div class="hero-panel">
+				<h1 class="display" id="hero-title" data-i18n="hero.title">
+					{hero?.title ?? "What makes something an agent?"}
+				</h1>
+				<div class="hero-actions">
+					<a
+						class="ag-button ag-button--primary"
+						href={hero?.cta1_url ?? "#works"}
+						data-i18n="hero.cta1"
+					>
+						{hero?.cta1_label ?? "Explore selected works"}
+					</a>
+					<a
+						class="ag-button ag-button--secondary"
+						href={hero?.cta2_url ?? "#sponsorship"}
+						data-i18n="hero.cta2"
+					>
+						{hero?.cta2_label ?? "Sponsorship"}
+					</a>
+				</div>
+			</div>
+		</div>
+
+		{heroPartners.length > 0 && (
+			<div class="container hero-partners-wrap">
+				<ul class="hero-partners" aria-label="Academic Partner">
+					{heroPartners.map((sponsor) => (
+						<li
+							class={`hero-partner${sponsor.data.logo_class ? ` hero-partner--${sponsor.data.logo_class}` : ""}`}
+						>
+							<img
+								src={imageUrl(sponsor.data.logo) ?? ""}
+								alt={sponsor.data.name}
+								loading="lazy"
+							/>
+						</li>
+					))}
+				</ul>
+			</div>
+		)}
+	</section>
+
+	<section
+		class="logo-wall"
+		id="affiliations"
+		style="--accent: var(--ag-coral)"
+		aria-labelledby="affiliations-title"
+	>
+		<div class="container logo-wall-inner">
+			<h2 class="logo-wall-title" id="affiliations-title" data-i18n="logos.title">
+				{logos?.title ?? "We have been trusted by"}
+			</h2>
+
+			{
+				vipSponsors.length > 0 && (
+					<div class="logo-group">
+						<h3 class="logo-group-label" data-i18n="logos.vip">
+							{logos?.vip_label ?? "VIP Sponsor"}
+						</h3>
+						<ul class="logo-strip logo-strip--major" aria-label="VIP Sponsor">
+							{vipSponsors.map((sponsor) => (
+								<li
+									class={`logo-item${sponsor.data.logo_class ? ` logo-item--${sponsor.data.logo_class}` : ""}`}
+								>
+									<img
+										src={imageUrl(sponsor.data.logo) ?? ""}
+										alt={sponsor.data.name}
+										loading="lazy"
+									/>
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+
+			{
+				importantSponsors.length > 0 && (
+					<div class="logo-group">
+						<h3 class="logo-group-label" data-i18n="logos.important">
+							{logos?.important_label ?? "Important Sponsor"}
+						</h3>
+						<ul class="logo-strip logo-strip--major" aria-label="Important Sponsors">
+							{importantSponsors.map((sponsor) => (
+								<li
+									class={`logo-item${sponsor.data.logo_class ? ` logo-item--${sponsor.data.logo_class}` : ""}`}
+								>
+									<img
+										src={imageUrl(sponsor.data.logo) ?? ""}
+										alt={sponsor.data.name}
+										loading="lazy"
+									/>
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+
+			{
+				affiliationSponsors.length > 0 && (
+					<div class="logo-group">
+						<h3 class="logo-group-label" data-i18n="logos.affiliation">
+							{logos?.affiliation_label ?? "Research Affiliation"}
+						</h3>
+						<ul class="logo-strip logo-strip--affiliates" aria-label="Research Affiliations">
+							{affiliationSponsors.map((sponsor) => (
+								<li
+									class={`logo-item${sponsor.data.logo_class ? ` logo-item--${sponsor.data.logo_class}` : ""}`}
+								>
+									<img
+										src={imageUrl(sponsor.data.logo) ?? ""}
+										alt={sponsor.data.name}
+										loading="lazy"
+									/>
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	<section class="section" id="research" aria-labelledby="research-title">
+		<div class="container research-stack">
+			<header class="section-head section-head--row">
+				<h2 id="research-title" data-i18n="research.title">
+					{research?.title ?? "Understanding humans through the agents we create, imagine, and live with."}
+				</h2>
+				<p class="muted head-aside" data-i18n="research.lede">
+					{research?.lede ?? "Agenthropology is a proposed research concept: studying people by studying the relationships they build with artificial and imagined agents."}
+				</p>
+			</header>
+
+			<ul class="four-a-strip" aria-label="Four research themes">
+				{themes.map((theme) => (
+					<li class="four-a-item" style={`--accent: ${theme.data.accent ?? "var(--ag-sky)"}`}>
+						<h3>{theme.data.title}</h3>
+						<p class="muted" data-i18n={theme.data.description_i18n || undefined}>
+							{theme.data.description}
+						</p>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<section class="hero-code-section" id="works" aria-label="Selected projects">
+		<h2 class="fp-caption">
+			<span class="fp-cap-1" data-i18n="works.cap1">{works?.caption1 ?? "SELECTED"}</span>
+			<span class="fp-cap-2" data-i18n="works.cap2">{works?.caption2 ?? "PROJECTS"}</span>
+		</h2>
+		<div class="hero-code-canvas" id="floating-projects-canvas">
+			<div class="fp-root">
+				<div class="fp-spiral-wrap">
+					<img alt="" class="fp-spiral-img" src="/assets/cad7c.svg" />
+				</div>
+				<div class="fp-cards-layer" id="floating-cards-layer"></div>
+			</div>
+		</div>
+	</section>
+
+	<script is:inline src="/scripts/works-slots.js?v=1"></script>
+	<script is:inline define:vars={{ projectData }}>
+		(function () {
+			var slots = window.AGENTHRO_WORK_SLOTS || [];
+			if (!projectData.length) {
+				window.AGENTHRO_FLOATING_CARDS = slots;
+				return;
+			}
+			window.AGENTHRO_FLOATING_CARDS = slots.map(function (slot, index) {
+				var project = projectData[index % projectData.length];
+				var title = project.title || (slot.titleLines || []).join(' ');
+				return Object.assign({}, slot, {
+					name: title.replace(/\n/g, ' '),
+					titleLines: title
+						.split('\n')
+						.map(function (line) { return line.trim(); })
+						.filter(Boolean),
+					href: project.coming_soon ? '' : project.url,
+					bg: project.background || slot.bg,
+					cover: project.cover || ''
+				});
+			});
+		})();
+	</script>
+
+	<section class="section" id="services" aria-labelledby="services-title">
+		<div class="container">
+			<header class="section-head section-head--row">
+				<h2 id="services-title" data-i18n="services.title">
+					{servicesSection?.title ?? "Services"}
+				</h2>
+				<p class="muted head-aside" data-i18n="services.lede">
+					{servicesSection?.lede ?? "Applied research, scientific reporting, and rapid prototyping for teams building or evaluating agents."}
+				</p>
+			</header>
+
+			<ul class="services-list">
+				{services.map((service) => (
+					<li class="service-card" style={`--accent: ${service.data.accent ?? "var(--ag-sky)"}`}>
+						<div class="service-main">
+							<h3 data-i18n={service.data.title_i18n || undefined}>{service.data.title}</h3>
+							<p class="muted" data-i18n={service.data.description_i18n || undefined}>
+								{service.data.description}
+							</p>
+						</div>
+						<div class="service-price">
+							<span class="price-val">{service.data.price}</span>
+							<span class="meta" data-i18n="services.perProject">per project</span>
+						</div>
+						{service.data.cta_url && (
+							<a
+								class="ag-button ag-button--ink"
+								href={service.data.cta_url}
+								data-i18n="services.cta"
+							>
+								{service.data.cta_label ?? "Request service"}
+							</a>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section" id="events" aria-labelledby="events-title">
+		<div class="container">
+			<header class="section-head section-head--row">
+				<h2 id="events-title" data-i18n="events.title">
+					{eventsSection?.title ?? "Selected Events"}
+				</h2>
+				<p class="muted head-aside" data-i18n="events.lede">
+					{eventsSection?.lede ?? "Hackathons, workshops, and science communication talks."}
+				</p>
+			</header>
+
+			<div class="events-grid">
+				{eventGroups.map((group) => {
+					const groupPoster = imageUrl(group.data.cover);
+					return (
+						<article
+							class="event-col"
+							style={`--accent: ${group.data.accent ?? "var(--ag-sky)"}`}
+						>
+							<h3 data-i18n={group.data.title_i18n || undefined}>{group.data.title}</h3>
+							<ul class="event-links">
+								{(group.data.links ?? []).map((link) => {
+									const poster = imageUrl(link.poster) ?? groupPoster;
+									return link.url ? (
+										<li>
+											<a
+												href={link.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												data-i18n={link.i18n_key || undefined}
+												data-poster={poster ?? undefined}
+											>
+												{link.label}
+											</a>
+										</li>
+									) : (
+										<li>
+											<span data-i18n={link.i18n_key || undefined}>{link.label}</span>
+										</li>
+									);
+								})}
+							</ul>
+						</article>
+					);
+				})}
+			</div>
+
+			<div class="event-poster-preview" id="event-poster-preview" aria-hidden="true">
+				<img alt="" />
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="sponsorship" aria-labelledby="sponsorship-title">
+		<div class="container">
+			<header class="section-head section-head--row">
+				<h2 id="sponsorship-title" data-i18n="sponsor.title">
+					{sponsorship?.title ?? "Sponsorship"}
+				</h2>
+				<p class="muted head-aside" data-i18n="sponsor.lede">
+					{sponsorship?.lede ?? "2-month phase. Higher tiers include all benefits from the tiers below them."}
+				</p>
+			</header>
+
+			<ul class="sponsor-grid">
+				{sponsorTiers.map((tier) => (
+					<li class="sponsor-card" style={`--accent: ${tier.data.accent ?? "var(--ag-sky)"}`}>
+						<div class="sponsor-head">
+							<h3>{tier.data.name}</h3>
+							<p class="price-val">{tier.data.price}</p>
+						</div>
+						{tier.data.coming_soon ? (
+							<span class="coming-label" data-i18n="sponsor.vip">Coming soon</span>
+						) : (
+							<>
+								{(tier.data.benefits ?? []).length > 0 && (
+									<ul class="sponsor-benefits">
+										{(tier.data.benefits ?? []).map((benefit) => (
+											<li data-i18n={benefit.i18n_key || undefined}>{benefit.text}</li>
+										))}
+									</ul>
+								)}
+								{tier.data.cta_url && (
+									<a
+										class="ag-button ag-button--ink"
+										href={tier.data.cta_url}
+										data-i18n="sponsor.cta"
+									>
+										{tier.data.cta_label ?? "Inquire"}
+									</a>
+								)}
+							</>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<section class="section people-deck-section" id="people" aria-labelledby="people-title">
+		<div class="container">
+			<header class="section-head section-head--row">
+				<h2 id="people-title" data-i18n="people.title">
+					{peopleSection?.title ?? "People"}
+				</h2>
+				<p class="muted head-aside" data-i18n="people.lede">
+					{peopleSection?.lede ?? "Researchers, advisors, engineers, and collaborators behind AGENTHRO."}
+				</p>
+			</header>
+		</div>
+
+		{people.length > 0 && (
+			<div
+				class="card-stack"
+				id="people-card-stack"
+				style={`height: ${deckHeight};`}
+				aria-label="Agenthro people"
+			>
+				<div class="deck-viewport">
+					{people.map((person, index) => {
+						const portrait = imageUrl(person.data.portrait);
+						const rotation = rotations[index % rotations.length];
+						const x = offsetsX[index % offsetsX.length];
+						const y = offsetsY[index % offsetsY.length];
+						const role = person.data.role ?? "";
+						const roleLines = role.split(/\s+/).filter(Boolean);
+						return (
+							<article
+								class="profile-card"
+								style={`--card-index: ${index}; --card-rotation: ${rotation}deg; --card-x: ${x}%; --card-y: ${y}%;`}
+								aria-label={`${person.data.name}, ${role}`}
+							>
+								{portrait ? (
+									<div class="identity-panel has-portrait">
+										<img
+											class="portrait"
+											src={portrait}
+											alt={`Portrait of ${person.data.name}`}
+										/>
+									</div>
+								) : (
+									<div class="identity-panel">
+										<p class="initials">
+											{person.data.initials || initialsFor(person.data.name)}
+										</p>
+									</div>
+								)}
+								<div class="profile-content">
+									<h3>{person.data.name}</h3>
+									<p class="eyebrow">{person.data.eyebrow ?? "PEOPLE / AGENTHRO"}</p>
+									<p class:list={["role", person.data.role_multiline && "role-multiline"]}>
+										{person.data.role_multiline
+											? roleLines.map((line, lineIndex) => (
+													<>
+														{lineIndex > 0 && <br />}
+														{line}
+													</>
+												))
+											: role}
+									</p>
+									<p class="description">{person.data.description}</p>
+									<p class="footer">{person.data.footer}</p>
+								</div>
+							</article>
+						);
+					})}
+				</div>
+			</div>
+		)}
+	</section>
+
+	<section class="wanna-join" id="join" aria-labelledby="join-title">
+		<div class="container wanna-join-inner">
+			<h2 class="wanna-title" id="join-title" data-i18n="join.wanna">
+				{join?.title ?? "WANNA JOIN?"}
+			</h2>
+			{join?.link_url && (
+				<a
+					class="wanna-link"
+					href={join.link_url}
+					target="_blank"
+					rel="noopener noreferrer"
+					data-i18n="join.click"
+				>
+					{join.link_label ?? "Click this"}
+				</a>
+			)}
+		</div>
+	</section>
+
+	<section class="section" id="about" aria-labelledby="about-title">
+		<div class="container about-stack">
+			<header class="section-head section-head--row">
+				<h2 id="about-title">{about?.title ?? "The Agenthropology Initiative"}</h2>
+				<p class="muted head-aside" data-i18n="about.p1">
+					{about?.lede ?? "AGENTHRO is the public name of The Agenthropology Initiative. We study agents (artificial, fictional, and imagined) as a way to understand the people who make and live with them."}
+				</p>
+			</header>
+
+			<ul class="about-pillars">
+				{principles.map((principle) => (
+					<li class="about-pillar" style={`--accent: ${principle.data.accent ?? "var(--ag-sky-light)"}`}>
+						<h3 data-i18n={principle.data.title_i18n || undefined}>{principle.data.title}</h3>
+						<p data-i18n={principle.data.body_i18n || undefined}>{principle.data.body}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+</AgenthroLayout>
