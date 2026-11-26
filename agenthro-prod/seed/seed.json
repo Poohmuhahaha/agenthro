@@ -313,6 +313,20 @@
 					"type": "image"
 				},
 				{
+					"slug": "poster_ratio",
+					"label": "Poster aspect ratio",
+					"type": "select",
+					"defaultValue": "auto",
+					"validation": {
+						"options": [
+							"auto",
+							"4/5",
+							"16/9",
+							"1/1"
+						]
+					}
+				},
+				{
 					"slug": "accent",
 					"label": "Accent",
 					"type": "string"

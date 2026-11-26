@@ -363,6 +363,7 @@ const deckHeight = `calc(100dvh + ${Math.max(0, people.length - 1)} * 72dvh)`;
 			<div class="events-grid">
 				{eventGroups.map((group) => {
 					const groupPoster = imageUrl(group.data.cover);
+					const posterRatio = (group.data as { poster_ratio?: string }).poster_ratio;
 					return (
 						<article
 							class="event-col"
@@ -380,6 +381,7 @@ const deckHeight = `calc(100dvh + ${Math.max(0, people.length - 1)} * 72dvh)`;
 												rel="noopener noreferrer"
 												data-i18n={link.i18n_key || undefined}
 												data-poster={poster ?? undefined}
+												data-poster-ratio={posterRatio || undefined}
 											>
 												{link.label}
 											</a>
