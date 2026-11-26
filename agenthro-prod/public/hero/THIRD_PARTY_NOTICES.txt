@@ -25,5 +25,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-Head base mesh — Dan Ulrich / Blender Studio (CC0 1.0)
-Source: Blender Studio Human Base Meshes (CC0).
+Head base mesh — "Head (Sculpting) - Realistic" by Dan Ulrich / Blender Studio (CC0 1.0)
+Source: https://commons.wikimedia.org/wiki/File:Head_(Sculpting)_-_Realistic_by_Dan_Ulrich_(CC0).stl
+License: Creative Commons CC0 1.0 Universal Public Domain Dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+Modification: Y-up, normalized to 1 unit height, decimated to ~44k triangles, quantized, and exported as GLB for this hero.
+Attribution is not required by CC0; the credit above is provided voluntarily.

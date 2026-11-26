@@ -1,5 +1,9 @@
 # AGENTHRO · The Agenthropology Initiative — website
 
+> **Active production site:** [`agenthro-prod/`](./agenthro-prod) — Astro + EmDash on Cloudflare Workers, including the Three.js homepage hero. See [`agenthro-prod/README.md`](./agenthro-prod/README.md) for setup, hero rebuild steps, and asset licenses.
+>
+> The instructions below document the legacy static site preserved at the repository root.
+
 Static public site (Story mode) built on the AGENTHRO CI & UI Design System v1.0.
 
 ## Run locally
