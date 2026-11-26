@@ -1,0 +1,122 @@
+AGENTHRO — third-party software notices
+Last updated: 2026-11-26
+
+This file covers third-party software used by the AGENTHRO production website.
+The 3D hero has a separate notice at /hero/THIRD_PARTY_NOTICES.txt, which also
+covers Three.js and the CC0 head mesh.
+
+===============================================================================
+1. MIT-LICENSED SOFTWARE INCLUDED IN OR SERVED WITH THE SITE
+===============================================================================
+
+Astro 7.4.13
+@astrojs/cloudflare 14.4.9
+@astrojs/react 7.1.9
+@astrojs/check 0.9.12
+Copyright (c) 2021 Fred K. Schott
+https://github.com/withastro/astro
+https://github.com/withastro/astro/tree/main/packages/integrations/cloudflare
+https://github.com/withastro/astro/tree/main/packages/integrations/react
+https://github.com/withastro/astro/tree/main/packages/check
+
+EmDash 1.6.0
+@emdash-cms/cloudflare 1.6.0
+Copyright 2026 Cloudflare Inc.
+https://github.com/cloudflare/emdash
+
+React 19.2.4
+React DOM 19.2.4
+Copyright (c) Meta Platforms, Inc. and affiliates.
+https://github.com/facebook/react
+
+Three.js 0.187.0 (r187)
+Copyright © 2010-2026 three.js authors
+https://github.com/mrdoob/three.js
+
+The following MIT License applies to each of the packages listed above:
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The complete resolved dependency tree and SPDX license identifiers are recorded
+in agenthro-prod/package-lock.json. The production bundle may include portions
+of these packages and their transitive dependencies, which are distributed
+under their respective permissive licenses (including MIT, ISC, BSD-2-Clause,
+BSD-3-Clause, Apache-2.0, MPL-2.0 and 0BSD).
+
+===============================================================================
+2. BUILD-ONLY / NOT DISTRIBUTED WITH THE SITE
+===============================================================================
+
+These tools are used to build, type-check, optimize or deploy the site and are
+not part of the files served to visitors:
+
+- Vite — MIT — https://github.com/vitejs/vite
+- Lightning CSS 1.33.0 — MPL-2.0 — https://github.com/parcel-bundler/lightningcss
+- Wrangler 4.168.0 — MIT OR Apache-2.0 — https://github.com/cloudflare/workers-sdk
+- @cloudflare/workers-types 5.20261125.1 — MIT OR Apache-2.0
+  https://github.com/cloudflare/workers-types
+- @astrojs/check 0.9.12 — MIT (also listed above)
+- glTF-Transform — MIT — https://github.com/donmccurdy/glTF-Transform
+- meshoptimizer — MIT — https://github.com/zeux/meshoptimizer
+
+===============================================================================
+3. FONTS
+===============================================================================
+
+The site loads these fonts from Google Fonts. They are not self-hosted or
+redistributed by this repository:
+
+- Inter — Rasmus Andersson — SIL Open Font License 1.1
+  https://github.com/rsms/inter/blob/master/LICENSE.txt
+- Noto Sans Thai — Google / Noto Project — SIL Open Font License 1.1
+  https://github.com/notofonts/noto-fonts/blob/main/LICENSE
+- Roboto Mono — Google — SIL Open Font License 1.1
+  https://github.com/googlefonts/RobotoMono/blob/main/LICENSE.txt
+
+If the fonts are self-hosted in the future, include the full OFL text and
+copyright notice for each font family.
+
+===============================================================================
+4. IMAGES, BRAND ASSETS, PORTRAITS AND CONTENT
+===============================================================================
+
+See the repository README, section "Credits and licenses", for the complete
+asset-by-asset record:
+
+- AGENTHRO brand marks: © AGENTHRO, all rights reserved.
+- Partner and sponsor logos: trademarks and copyrights of the respective
+  organisations; displayed only to identify partners, sponsors and affiliations.
+- Team portraits: supplied by the pictured team members; copyright remains with
+  the respective individuals; used on this site with permission.
+- Event and project cover artwork: created for AGENTHRO; event/project names and
+  any third-party marks remain the property of their owners.
+- Covered seed/demo blog photography: Unsplash License.
+  https://unsplash.com/license
+- 3D head mesh: CC0 1.0; source and modifications are documented at
+  /hero/THIRD_PARTY_NOTICES.txt.
+
+===============================================================================
+5. CORRECTIONS
+===============================================================================
+
+If you are a rights holder and believe an asset is missing from this record or
+is incorrectly credited, contact agenthro@gmail.com with the subject
+"Asset credit correction" and include the file path or page URL.

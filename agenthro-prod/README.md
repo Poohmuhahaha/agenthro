@@ -73,7 +73,9 @@ For debugging:
 - `?webgl=1` forces the WebGL 2 backend.
 - `?nopost=1` disables bloom post-processing.
 
-## Credits and licenses
+## Credits and licenses — 3D hero
+
+The complete repository-level credit inventory — site software, fonts, AGENTHRO brand marks, team portraits, partner logos, cover art and seed photography — is in the root README: [Credits and licenses](../README.md#credits-and-licenses). Site software notices are at [`public/THIRD_PARTY_NOTICES.txt`](./public/THIRD_PARTY_NOTICES.txt), served at `/THIRD_PARTY_NOTICES.txt`.
 
 ### Required notice
 
@@ -112,7 +114,7 @@ The following experimental assets are **not used** in the final hero:
 
 ### Outside this hero
 
-The existing site also uses fonts, logos, portraits, sponsor logos and other images that are not part of the 3D hero. Those need their own rights review. In particular, `/assets/hero-bg.jpg` is no longer used in the hero but is still referenced by the poster-card styles; verify its source and license separately if it remains in use.
+The rest of the site uses fonts and team, partner, event and project imagery with their own credits. See the root [Credits and licenses](../README.md#credits-and-licenses) section for the asset-by-asset record.
 
 ### Build tooling
 
